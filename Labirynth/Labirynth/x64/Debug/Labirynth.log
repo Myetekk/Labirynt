@@ -1,0 +1,5 @@
+﻿  main.cpp
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(18,11): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(18,21): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(18,31): warning C4309: "inicjowanie": obcięcie stałej wartości
+  Labirynth.vcxproj -> C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\x64\Debug\Labirynth.exe
