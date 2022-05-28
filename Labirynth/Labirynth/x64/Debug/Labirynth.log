@@ -1,5 +1,209 @@
 ﻿  main.cpp
-C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(18,11): warning C4309: "inicjowanie": obcięcie stałej wartości
-C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(18,21): warning C4309: "inicjowanie": obcięcie stałej wartości
-C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(18,31): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,34): warning C4838: konwersja z „int” do „char” wymaga konwersji zawężającej
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,34): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,40): warning C4838: konwersja z „int” do „char” wymaga konwersji zawężającej
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,40): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,46): warning C4838: konwersja z „int” do „char” wymaga konwersji zawężającej
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,46): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,52): warning C4838: konwersja z „int” do „char” wymaga konwersji zawężającej
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,52): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,58): warning C4838: konwersja z „int” do „char” wymaga konwersji zawężającej
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,58): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,64): warning C4838: konwersja z „int” do „char” wymaga konwersji zawężającej
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,64): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,70): warning C4838: konwersja z „int” do „char” wymaga konwersji zawężającej
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,70): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,76): warning C4838: konwersja z „int” do „char” wymaga konwersji zawężającej
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,76): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,82): warning C4838: konwersja z „int” do „char” wymaga konwersji zawężającej
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,82): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,88): warning C4838: konwersja z „int” do „char” wymaga konwersji zawężającej
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,88): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,94): warning C4838: konwersja z „int” do „char” wymaga konwersji zawężającej
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,94): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,100): warning C4838: konwersja z „int” do „char” wymaga konwersji zawężającej
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,100): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,106): warning C4838: konwersja z „int” do „char” wymaga konwersji zawężającej
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,106): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,112): warning C4838: konwersja z „int” do „char” wymaga konwersji zawężającej
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,112): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,118): warning C4838: konwersja z „int” do „char” wymaga konwersji zawężającej
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,118): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,124): warning C4838: konwersja z „int” do „char” wymaga konwersji zawężającej
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,124): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,130): warning C4838: konwersja z „int” do „char” wymaga konwersji zawężającej
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,130): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,136): warning C4838: konwersja z „int” do „char” wymaga konwersji zawężającej
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,136): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,142): warning C4838: konwersja z „int” do „char” wymaga konwersji zawężającej
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,142): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,148): warning C4838: konwersja z „int” do „char” wymaga konwersji zawężającej
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,148): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,154): warning C4838: konwersja z „int” do „char” wymaga konwersji zawężającej
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,154): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,160): warning C4838: konwersja z „int” do „char” wymaga konwersji zawężającej
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,160): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,166): warning C4838: konwersja z „int” do „char” wymaga konwersji zawężającej
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,166): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,172): warning C4838: konwersja z „int” do „char” wymaga konwersji zawężającej
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,172): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,178): warning C4838: konwersja z „int” do „char” wymaga konwersji zawężającej
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,178): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,184): warning C4838: konwersja z „int” do „char” wymaga konwersji zawężającej
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,184): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,190): warning C4838: konwersja z „int” do „char” wymaga konwersji zawężającej
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,190): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,196): warning C4838: konwersja z „int” do „char” wymaga konwersji zawężającej
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,196): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,202): warning C4838: konwersja z „int” do „char” wymaga konwersji zawężającej
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,202): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,208): warning C4838: konwersja z „int” do „char” wymaga konwersji zawężającej
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,208): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,214): warning C4838: konwersja z „int” do „char” wymaga konwersji zawężającej
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,214): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,220): warning C4838: konwersja z „int” do „char” wymaga konwersji zawężającej
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,220): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,226): warning C4838: konwersja z „int” do „char” wymaga konwersji zawężającej
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,226): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,232): warning C4838: konwersja z „int” do „char” wymaga konwersji zawężającej
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,232): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,238): warning C4838: konwersja z „int” do „char” wymaga konwersji zawężającej
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,238): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,244): warning C4838: konwersja z „int” do „char” wymaga konwersji zawężającej
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,244): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,250): warning C4838: konwersja z „int” do „char” wymaga konwersji zawężającej
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,250): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,256): warning C4838: konwersja z „int” do „char” wymaga konwersji zawężającej
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,256): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,262): warning C4838: konwersja z „int” do „char” wymaga konwersji zawężającej
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,262): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,268): warning C4838: konwersja z „int” do „char” wymaga konwersji zawężającej
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,268): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,274): warning C4838: konwersja z „int” do „char” wymaga konwersji zawężającej
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,274): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,280): warning C4838: konwersja z „int” do „char” wymaga konwersji zawężającej
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,280): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,286): warning C4838: konwersja z „int” do „char” wymaga konwersji zawężającej
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,286): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,292): warning C4838: konwersja z „int” do „char” wymaga konwersji zawężającej
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,292): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,298): warning C4838: konwersja z „int” do „char” wymaga konwersji zawężającej
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,298): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,304): warning C4838: konwersja z „int” do „char” wymaga konwersji zawężającej
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,304): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,310): warning C4838: konwersja z „int” do „char” wymaga konwersji zawężającej
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,310): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,316): warning C4838: konwersja z „int” do „char” wymaga konwersji zawężającej
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,316): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,322): warning C4838: konwersja z „int” do „char” wymaga konwersji zawężającej
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,322): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,328): warning C4838: konwersja z „int” do „char” wymaga konwersji zawężającej
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,328): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,334): warning C4838: konwersja z „int” do „char” wymaga konwersji zawężającej
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,334): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,340): warning C4838: konwersja z „int” do „char” wymaga konwersji zawężającej
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,340): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,346): warning C4838: konwersja z „int” do „char” wymaga konwersji zawężającej
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,346): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,352): warning C4838: konwersja z „int” do „char” wymaga konwersji zawężającej
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,352): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,358): warning C4838: konwersja z „int” do „char” wymaga konwersji zawężającej
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,358): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,364): warning C4838: konwersja z „int” do „char” wymaga konwersji zawężającej
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,364): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,370): warning C4838: konwersja z „int” do „char” wymaga konwersji zawężającej
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,370): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,376): warning C4838: konwersja z „int” do „char” wymaga konwersji zawężającej
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,376): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,382): warning C4838: konwersja z „int” do „char” wymaga konwersji zawężającej
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,382): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,388): warning C4838: konwersja z „int” do „char” wymaga konwersji zawężającej
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,388): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,394): warning C4838: konwersja z „int” do „char” wymaga konwersji zawężającej
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,394): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,400): warning C4838: konwersja z „int” do „char” wymaga konwersji zawężającej
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,400): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,406): warning C4838: konwersja z „int” do „char” wymaga konwersji zawężającej
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,406): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,412): warning C4838: konwersja z „int” do „char” wymaga konwersji zawężającej
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,412): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,418): warning C4838: konwersja z „int” do „char” wymaga konwersji zawężającej
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,418): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,424): warning C4838: konwersja z „int” do „char” wymaga konwersji zawężającej
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,424): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,430): warning C4838: konwersja z „int” do „char” wymaga konwersji zawężającej
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,430): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,436): warning C4838: konwersja z „int” do „char” wymaga konwersji zawężającej
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,436): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,442): warning C4838: konwersja z „int” do „char” wymaga konwersji zawężającej
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,442): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,448): warning C4838: konwersja z „int” do „char” wymaga konwersji zawężającej
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,448): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,454): warning C4838: konwersja z „int” do „char” wymaga konwersji zawężającej
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,454): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,460): warning C4838: konwersja z „int” do „char” wymaga konwersji zawężającej
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,460): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,466): warning C4838: konwersja z „int” do „char” wymaga konwersji zawężającej
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,466): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,472): warning C4838: konwersja z „int” do „char” wymaga konwersji zawężającej
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,472): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,478): warning C4838: konwersja z „int” do „char” wymaga konwersji zawężającej
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,478): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,484): warning C4838: konwersja z „int” do „char” wymaga konwersji zawężającej
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,484): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,490): warning C4838: konwersja z „int” do „char” wymaga konwersji zawężającej
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,490): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,496): warning C4838: konwersja z „int” do „char” wymaga konwersji zawężającej
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,496): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,502): warning C4838: konwersja z „int” do „char” wymaga konwersji zawężającej
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,502): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,508): warning C4838: konwersja z „int” do „char” wymaga konwersji zawężającej
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,508): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,514): warning C4838: konwersja z „int” do „char” wymaga konwersji zawężającej
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,514): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,520): warning C4838: konwersja z „int” do „char” wymaga konwersji zawężającej
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,520): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,526): warning C4838: konwersja z „int” do „char” wymaga konwersji zawężającej
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,526): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,532): warning C4838: konwersja z „int” do „char” wymaga konwersji zawężającej
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,532): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,538): warning C4838: konwersja z „int” do „char” wymaga konwersji zawężającej
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,538): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,544): warning C4838: konwersja z „int” do „char” wymaga konwersji zawężającej
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,544): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,550): warning C4838: konwersja z „int” do „char” wymaga konwersji zawężającej
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,550): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,556): warning C4838: konwersja z „int” do „char” wymaga konwersji zawężającej
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,556): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,562): warning C4838: konwersja z „int” do „char” wymaga konwersji zawężającej
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,562): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,568): warning C4838: konwersja z „int” do „char” wymaga konwersji zawężającej
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,568): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,574): warning C4838: konwersja z „int” do „char” wymaga konwersji zawężającej
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,574): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,580): warning C4838: konwersja z „int” do „char” wymaga konwersji zawężającej
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,580): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,586): warning C4838: konwersja z „int” do „char” wymaga konwersji zawężającej
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,586): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,592): warning C4838: konwersja z „int” do „char” wymaga konwersji zawężającej
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,592): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,598): warning C4838: konwersja z „int” do „char” wymaga konwersji zawężającej
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,598): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,604): warning C4838: konwersja z „int” do „char” wymaga konwersji zawężającej
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,604): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,610): warning C4838: konwersja z „int” do „char” wymaga konwersji zawężającej
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,610): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,616): warning C4838: konwersja z „int” do „char” wymaga konwersji zawężającej
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,616): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,622): warning C4838: konwersja z „int” do „char” wymaga konwersji zawężającej
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,622): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,628): warning C4838: konwersja z „int” do „char” wymaga konwersji zawężającej
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(8,628): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(23,11): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(23,21): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(23,31): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(52,11): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(52,21): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(52,31): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\Labirynth\Class.h(88,24): warning C4244: "argument": konwersja z "time_t" do "unsigned int", możliwa utrata danych
   Labirynth.vcxproj -> C:\Users\mirek\OneDrive\Dokumenty\GitHub\Labirynt\Labirynth\x64\Debug\Labirynth.exe
