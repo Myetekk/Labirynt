@@ -1,6 +1,6 @@
-#include <iostream>
+//#include <iostream>
 #include "Class.h"
-using namespace std;
+//using namespace std;
 
 int main()
 {
