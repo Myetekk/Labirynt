@@ -1,6 +1,6 @@
-#include <iostream>
+//#include <iostream> //po co ci to!?
 #include "Class.h"
-using namespace std;
+//using namespace std; //i to!?!?
 
 int main()
 {
