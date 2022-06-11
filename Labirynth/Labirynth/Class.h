@@ -23,6 +23,21 @@ void Clas::WyswietlTabliceZew()
 	char poz = 0xC4/*, y = 0xC5*/, pio = 0xB3;
 	char lg = 0xDA, pg = 0xBF, ld = 0xC0, pd = 0xD9; // rogi dla planszy lg - lewy górny, pg - prawy górny itd.
 
+	//kolory
+	CONSOLE_SCREEN_BUFFER_INFOEX info1;
+	info1.cbSize = sizeof(CONSOLE_SCREEN_BUFFER_INFOEX);
+
+	HANDLE hConsole1 = GetStdHandle(STD_OUTPUT_HANDLE);
+	GetConsoleScreenBufferInfoEx(hConsole1, &info1);
+
+	info1.ColorTable[0] = RGB(16, 11, 7);//ten kolor jest t³em
+	info1.ColorTable[1] = RGB(105, 168, 226); //kolor gracza 1
+	info1.ColorTable[2] = RGB(207, 115, 54);//kolor gracza 2
+
+	SetConsoleScreenBufferInfoEx(hConsole1, &info1);
+
+
+	SetConsoleTextAttribute(hConsole1, 1); //(hConsole1, n) w funkcji oznacza ¿e bierzemy info1.ColorTable[n]
 	cout << "  Tablica docelowa" << endl;
 	cout << "   "; //-1 spacja
 
