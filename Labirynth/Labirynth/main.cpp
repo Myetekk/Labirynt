@@ -1,6 +1,4 @@
-//#include <iostream> //po co ci to!?
 #include "Class.h"
-//using namespace std; //i to!?!?
 
 int main()
 {
@@ -17,11 +15,11 @@ int main()
 PlanszaZew:
 	niewiadoma 0xCF
 	przejœcie " "
-	œciana 0xFE
+	œciana 0xFE 
 
 PlanszaWew:
-	pocz¹tek: 8
-	koniec: 9
+	pocz¹tek: 8 - miejsce startu
+	koniec: 9 - meta
 	œciana: 2
 	pusto: 0
 */
