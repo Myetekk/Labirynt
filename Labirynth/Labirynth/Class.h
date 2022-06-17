@@ -4,23 +4,38 @@
 #include <windows.h>
 using namespace std;
 
-int PlanszaWew[11][11]{ 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2 };
-char PlanszaWyswietlana[11][11]{ 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF,0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF };
+//int PlanszaWew[11][11]{ 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2 };
+//char PlanszaWyswietlana[11][11]{ 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF,0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF };
+
+int PlanszaWew[11][11]{}; // PlanszaWew bêdzie bazowo wype³niona "2"
+char PlanszaWyswietlana[11][11]{}; //PlanszaWyswietlana bêdzie bazowo wype³niona "0xFE"
 
 int WielkoscPlanszy = 11;
 
 class Clas
 {
 public:
+	void Uzupe³nieniePlansz();
 	void WyswietlTabliceZew();
 	void WyswietlTabliceWew();
-	void GenerowanieSciany();
+	void GenerowaniePrzejœcia();
 	void GenerowaniePlanszy();
 };
+void Clas::Uzupe³nieniePlansz()
+{
+	for (int i = 0; i < WielkoscPlanszy; i++)
+	{
+		for (int j = 0; j < WielkoscPlanszy; j++)
+		{
+			PlanszaWew[i][j] = 2;
+			PlanszaWyswietlana[i][j] = 0xFE;
+		}
+	}
+}
 
 void Clas::WyswietlTabliceZew()
-{//kreska pozioma,     krzy¿yk,     pionowa
-	char poz = 0xC4/*, y = 0xC5*/, pio = 0xB3;
+{//kreska pozioma,    pionowa
+	char poz = 0xC4, pio = 0xB3;
 	char lg = 0xDA, pg = 0xBF, ld = 0xC0, pd = 0xD9; // rogi dla planszy lg - lewy górny, pg - prawy górny itd.
 
 	//kolory
@@ -39,12 +54,12 @@ void Clas::WyswietlTabliceZew()
 
 	SetConsoleTextAttribute(hConsole1, 1); //(hConsole1, n) w funkcji oznacza ¿e bierzemy info1.ColorTable[n]
 	cout << "  Tablica docelowa" << endl;
-	cout << "   "; //-1 spacja
+	cout << "   "; 
 
 	for (int i = 0; i < WielkoscPlanszy; i++)
 	{
 		cout.width(3);
-		cout << char(65 + i); // teraz na górze tabicy wyœwietla A, B, C,...
+		cout << char(65 + i); //na górze tablicy wyœwietla A, B, C,...
 	}
 	cout << endl;
 	
@@ -59,7 +74,7 @@ void Clas::WyswietlTabliceZew()
 		cout.width(3);
 		cout << i + 1 << pio;
 
-		int j = 0; //zrobi³em trochê wê¿sze na pocz¹tku bo estetycznie
+		int j = 0;
 		cout.width(2);
 		cout << PlanszaWyswietlana[i][j];
 
@@ -80,16 +95,16 @@ void Clas::WyswietlTabliceZew()
 
 void Clas::WyswietlTabliceWew()
 {
-	char poz = 0xC4,/* y = 0xC5,*/ pio = 0xB3;
+	char poz = 0xC4, pio = 0xB3;
 	char lg = 0xDA, pg = 0xBF, ld = 0xC0, pd = 0xD9; // rogi dla planszy lg - lewy górny, pg - prawy górny itd.
 
 	cout << "  Tablica robocza" << endl;
-	cout << "   "; // -1 spacja
+	cout << "   ";
 
 	for (int i = 0; i < WielkoscPlanszy; i++)
 	{
 		cout.width(3);
-		cout << char(65 + i); // teraz na górze wyœwietla A, B, C,...
+		cout << char(65 + i); //na górze wyœwietla A, B, C,...
 	}
 	cout << endl;
 
@@ -104,7 +119,7 @@ void Clas::WyswietlTabliceWew()
 		cout.width(3);
 		cout << i + 1 << pio;
 
-		int j = 0; //zrobi³em trochê wê¿sze na pocz¹tku bo estetycznie
+		int j = 0;
 		cout.width(2);
 		cout << PlanszaWew[i][j];
 		for (int j = 1; j <= WielkoscPlanszy - 1; j++)   //œrodek
@@ -122,16 +137,12 @@ void Clas::WyswietlTabliceWew()
 	//-----------------------------------------------------
 }
 
-void Clas::GenerowanieSciany()
+void Clas::GenerowaniePrzejœcia()
 {
 	int aktualnieWiersz = 0, aktualnieKolumna = 0; // zaczynamy w punkcie startowym - w kodzie (0,0), na planszy (1,1)
-
-
-	PlanszaWew[0][0] = 8; // oznaczernie poczatku na planszy roboczej
-	PlanszaWew[WielkoscPlanszy-1][WielkoscPlanszy - 1] = 9; // oznaczernie konca na planszy roboczej
-
-	PlanszaWyswietlana[0][0] = ' '; // oznaczernie poczatku na planszy wyswietlanej
-	PlanszaWyswietlana[WielkoscPlanszy - 1][WielkoscPlanszy - 1] = ' '; // oznaczernie konca na planszy wyswietlanej
+	
+	PlanszaWyswietlana[0][0] = ' '; //oznaczenie poczatku na planszy wyswietlanej
+									//koniec nie jest oznaczony ' ' bo algorytm i tak zrobi to "za nas"
 
 	//-------------------------------------------------------------------------
 	int kierunek;
@@ -141,7 +152,7 @@ void Clas::GenerowanieSciany()
 
 
 	bool doszedlDoKonca{};
-	while (doszedlDoKonca != 1)
+	while (!doszedlDoKonca)
 	{
 		if (aktualnieWiersz == 10 && aktualnieKolumna == 10)
 		{
@@ -150,7 +161,7 @@ void Clas::GenerowanieSciany()
 		else
 		{
 			bool dobrze{};
-			while (dobrze == 0)
+			while (!dobrze)
 			{
 				dobrze = 1;
 				kierunek = kier(generator);
@@ -221,13 +232,15 @@ void Clas::GenerowanieSciany()
 			}
 		}
 	}
-	
+	PlanszaWew[0][0] = 8; // oznaczenie poczatku na planszy roboczej
+	PlanszaWew[WielkoscPlanszy - 1][WielkoscPlanszy - 1] = 9; // oznaczenie konca na planszy roboczej	
 }
 
 void Clas::GenerowaniePlanszy()
 {
-	GenerowanieSciany();
+	Uzupe³nieniePlansz();
 
+	GenerowaniePrzejœcia();
 
 	WyswietlTabliceZew();
 	cout << endl;

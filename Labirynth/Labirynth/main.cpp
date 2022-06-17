@@ -21,5 +21,5 @@ PlanszaWew:
 	pocz¹tek: 8 - miejsce startu
 	koniec: 9 - meta
 	œciana: 2
-	pusto: 0
+	pusto: 1
 */
