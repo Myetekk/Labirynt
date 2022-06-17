@@ -10,35 +10,36 @@ using namespace std;
 int PlanszaWew[11][11]{}; // PlanszaWew bêdzie bazowo wype³niona "2"
 char PlanszaWyswietlana[11][11]{}; //PlanszaWyswietlana bêdzie bazowo wype³niona "0xFE"
 
+char Gracz1_TwojaPlansza[11][11]{};
+
 int WielkoscPlanszy = 11;
+
+char poz = 0xC4, pio = 0xB3;//kreska pozioma, pionowa
+char lg = 0xDA, pg = 0xBF, ld = 0xC0, pd = 0xD9; // rogi dla planszy lg - lewy górny, pg - prawy górny itd.
+
+string wspó³rzêdna{}; //tu bêdziemy podawaæ wspó³rzêdn¹
+
+COORD c; //do zmieniania pozycji kursora
+/*c.X = xj;
+c.Y = yj;
+SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), c);*/
 
 class Clas
 {
 public:
+	void Kolory();
 	void Uzupe³nieniePlansz();
 	void WyswietlTabliceZew();
 	void WyswietlTabliceWew();
 	void GenerowaniePrzejœcia();
 	void GenerowaniePlanszy();
+
+	void Gracz1_Wyœwietl_Swoj¹Planszê();
+	void Gra_1os();
 };
-void Clas::Uzupe³nieniePlansz()
+
+void Clas::Kolory()
 {
-	for (int i = 0; i < WielkoscPlanszy; i++)
-	{
-		for (int j = 0; j < WielkoscPlanszy; j++)
-		{
-			PlanszaWew[i][j] = 2;
-			PlanszaWyswietlana[i][j] = 0xFE;
-		}
-	}
-}
-
-void Clas::WyswietlTabliceZew()
-{//kreska pozioma,    pionowa
-	char poz = 0xC4, pio = 0xB3;
-	char lg = 0xDA, pg = 0xBF, ld = 0xC0, pd = 0xD9; // rogi dla planszy lg - lewy górny, pg - prawy górny itd.
-
-	//kolory
 	CONSOLE_SCREEN_BUFFER_INFOEX info1;
 	info1.cbSize = sizeof(CONSOLE_SCREEN_BUFFER_INFOEX);
 
@@ -53,6 +54,22 @@ void Clas::WyswietlTabliceZew()
 
 
 	SetConsoleTextAttribute(hConsole1, 1); //(hConsole1, n) w funkcji oznacza ¿e bierzemy info1.ColorTable[n]
+}
+
+void Clas::Uzupe³nieniePlansz()
+{
+	for (int i = 0; i < WielkoscPlanszy; i++)
+	{
+		for (int j = 0; j < WielkoscPlanszy; j++)
+		{
+			PlanszaWew[i][j] = 2;
+			PlanszaWyswietlana[i][j] = 0xFE;
+		}
+	}
+}
+
+void Clas::WyswietlTabliceZew()
+{	
 	cout << "  Tablica docelowa" << endl;
 	cout << "   "; 
 
@@ -95,9 +112,6 @@ void Clas::WyswietlTabliceZew()
 
 void Clas::WyswietlTabliceWew()
 {
-	char poz = 0xC4, pio = 0xB3;
-	char lg = 0xDA, pg = 0xBF, ld = 0xC0, pd = 0xD9; // rogi dla planszy lg - lewy górny, pg - prawy górny itd.
-
 	cout << "  Tablica robocza" << endl;
 	cout << "   ";
 
@@ -139,11 +153,8 @@ void Clas::WyswietlTabliceWew()
 
 void Clas::GenerowaniePrzejœcia()
 {
-	int aktualnieWiersz = 0, aktualnieKolumna = 0; // zaczynamy w punkcie startowym - w kodzie (0,0), na planszy (1,1)
+	int aktualnieWiersz = 0, aktualnieKolumna = 0; // zaczynamy w punkcie startowym - w kodzie (0,0), na planszy A1
 	
-	PlanszaWyswietlana[0][0] = ' '; //oznaczenie poczatku na planszy wyswietlanej
-									//koniec nie jest oznaczony ' ' bo algorytm i tak zrobi to "za nas"
-
 	//-------------------------------------------------------------------------
 	int kierunek;
 	mt19937 generator(time(nullptr));										   // generator wybierania kierunku
@@ -233,16 +244,80 @@ void Clas::GenerowaniePrzejœcia()
 		}
 	}
 	PlanszaWew[0][0] = 8; // oznaczenie poczatku na planszy roboczej
-	PlanszaWew[WielkoscPlanszy - 1][WielkoscPlanszy - 1] = 9; // oznaczenie konca na planszy roboczej	
+	PlanszaWew[WielkoscPlanszy - 1][WielkoscPlanszy - 1] = 9; // oznaczenie konca na planszy roboczej
+	PlanszaWyswietlana[0][0] = '*'; // bo na start zaczynamy z pozycji A1
+	PlanszaWyswietlana[WielkoscPlanszy - 1][WielkoscPlanszy - 1] = 'M'; //oznaczenie mety	
+}
+
+void Clas::Gracz1_Wyœwietl_Swoj¹Planszê()
+{
+	for (int i = 0; i < WielkoscPlanszy; i++)
+	{
+		for (int j = 0; j < WielkoscPlanszy; j++)
+		{
+			Gracz1_TwojaPlansza[i][j] = '?';
+		}
+	}
+	Gracz1_TwojaPlansza[0][0] = '*'; // bo na start zaczynamy z pozycji A1
+	Gracz1_TwojaPlansza[WielkoscPlanszy - 1][WielkoscPlanszy - 1] = 'M'; //oznaczenie mety
+
+	//------------------------------------------------------------------------------------
+
+	cout << "  GRACZ 1 twoja plansza" << endl;
+	cout << "   ";
+
+	for (int i = 0; i < WielkoscPlanszy; i++)
+	{
+		cout.width(3);
+		cout << char(65 + i); //na górze tablicy wyœwietla A, B, C,...
+	}
+	cout << endl;
+
+	//-----------------------------------------------------
+	cout << "   " << lg;
+	for (int i = 1; i <= WielkoscPlanszy; i++)           //górna ramka
+		cout << poz << poz << poz;
+	cout << pg << endl;
+	//-----------------------------------------------------
+	for (int i = 0; i <= WielkoscPlanszy - 1; i++)
+	{
+		cout.width(3);
+		cout << i + 1 << pio;
+
+		int j = 0;
+		cout.width(2);
+		cout << Gracz1_TwojaPlansza[i][j];
+
+		for (int j = 1; j <= WielkoscPlanszy - 1; j++)   //œrodek
+		{
+			cout.width(3);
+			cout << Gracz1_TwojaPlansza[i][j];
+		}
+		cout << ' ' << pio << endl;
+	}
+	//-----------------------------------------------------
+	cout << "   " << ld;
+	for (int i = 1; i <= WielkoscPlanszy; i++)           //dolna ramka
+		cout << poz << poz << poz;
+	cout << pd << endl;	
+}
+
+void Clas::Gra_1os()
+{
+
 }
 
 void Clas::GenerowaniePlanszy()
 {
+	Kolory();
 	Uzupe³nieniePlansz();
 
 	GenerowaniePrzejœcia();
 
-	WyswietlTabliceZew();
+	Gracz1_Wyœwietl_Swoj¹Planszê();
 	cout << endl;
-	WyswietlTabliceWew();
+
+	WyswietlTabliceZew();
+
+	//WyswietlTabliceWew();
 }

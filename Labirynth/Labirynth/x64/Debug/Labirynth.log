@@ -1,16 +1,10 @@
 ﻿  main.cpp
-C:\Users\Szymon\Documents\GitHub\Labirynt\Labirynth\Labirynth\Class.h(31,31): warning C4309: "=": obcięcie stałej wartości
-C:\Users\Szymon\Documents\GitHub\Labirynt\Labirynth\Labirynth\Class.h(38,13): warning C4309: "inicjowanie": obcięcie stałej wartości
-C:\Users\Szymon\Documents\GitHub\Labirynt\Labirynth\Labirynth\Class.h(38,25): warning C4309: "inicjowanie": obcięcie stałej wartości
-C:\Users\Szymon\Documents\GitHub\Labirynt\Labirynth\Labirynth\Class.h(39,12): warning C4309: "inicjowanie": obcięcie stałej wartości
-C:\Users\Szymon\Documents\GitHub\Labirynt\Labirynth\Labirynth\Class.h(39,23): warning C4309: "inicjowanie": obcięcie stałej wartości
-C:\Users\Szymon\Documents\GitHub\Labirynt\Labirynth\Labirynth\Class.h(39,34): warning C4309: "inicjowanie": obcięcie stałej wartości
-C:\Users\Szymon\Documents\GitHub\Labirynt\Labirynth\Labirynth\Class.h(39,45): warning C4309: "inicjowanie": obcięcie stałej wartości
-C:\Users\Szymon\Documents\GitHub\Labirynt\Labirynth\Labirynth\Class.h(98,13): warning C4309: "inicjowanie": obcięcie stałej wartości
-C:\Users\Szymon\Documents\GitHub\Labirynt\Labirynth\Labirynth\Class.h(98,25): warning C4309: "inicjowanie": obcięcie stałej wartości
-C:\Users\Szymon\Documents\GitHub\Labirynt\Labirynth\Labirynth\Class.h(99,12): warning C4309: "inicjowanie": obcięcie stałej wartości
-C:\Users\Szymon\Documents\GitHub\Labirynt\Labirynth\Labirynth\Class.h(99,23): warning C4309: "inicjowanie": obcięcie stałej wartości
-C:\Users\Szymon\Documents\GitHub\Labirynt\Labirynth\Labirynth\Class.h(99,34): warning C4309: "inicjowanie": obcięcie stałej wartości
-C:\Users\Szymon\Documents\GitHub\Labirynt\Labirynth\Labirynth\Class.h(99,45): warning C4309: "inicjowanie": obcięcie stałej wartości
-C:\Users\Szymon\Documents\GitHub\Labirynt\Labirynth\Labirynth\Class.h(149,24): warning C4244: "argument": konwersja z "time_t" do "unsigned int", możliwa utrata danych
+C:\Users\Szymon\Documents\GitHub\Labirynt\Labirynth\Labirynth\Class.h(17,12): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\Szymon\Documents\GitHub\Labirynt\Labirynth\Labirynth\Class.h(17,24): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\Szymon\Documents\GitHub\Labirynt\Labirynth\Labirynth\Class.h(18,11): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\Szymon\Documents\GitHub\Labirynt\Labirynth\Labirynth\Class.h(18,22): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\Szymon\Documents\GitHub\Labirynt\Labirynth\Labirynth\Class.h(18,33): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\Szymon\Documents\GitHub\Labirynt\Labirynth\Labirynth\Class.h(18,44): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\Szymon\Documents\GitHub\Labirynt\Labirynth\Labirynth\Class.h(66,31): warning C4309: "=": obcięcie stałej wartości
+C:\Users\Szymon\Documents\GitHub\Labirynt\Labirynth\Labirynth\Class.h(160,24): warning C4244: "argument": konwersja z "time_t" do "unsigned int", możliwa utrata danych
   Labirynth.vcxproj -> C:\Users\Szymon\Documents\GitHub\Labirynt\Labirynth\x64\Debug\Labirynth.exe
