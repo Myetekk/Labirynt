@@ -4,10 +4,10 @@
 #include <windows.h>
 using namespace std;
 
-int PlanszaWew[10][10]{ 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2 };
-char PlanszaWyswietlana[10][10]{ 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF };
+int PlanszaWew[11][11]{ 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2 };
+char PlanszaWyswietlana[11][11]{ 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF,0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF };
 
-int WielkoscPlanszy = 10;
+int WielkoscPlanszy = 11;
 
 class Clas
 {
@@ -124,6 +124,9 @@ void Clas::WyswietlTabliceWew()
 
 void Clas::GenerowanieSciany()
 {
+	int aktualnieWiersz = 0, aktualnieKolumna = 0; // zaczynamy w punkcie startowym - w kodzie (0,0), na planszy (1,1)
+
+
 	PlanszaWew[0][0] = 8; // oznaczernie poczatku na planszy roboczej
 	PlanszaWew[WielkoscPlanszy-1][WielkoscPlanszy - 1] = 9; // oznaczernie konca na planszy roboczej
 
@@ -136,87 +139,93 @@ void Clas::GenerowanieSciany()
 	uniform_int_distribution<int> kier(1, 4);// 1-gora, 2-prawo, 3-dol, 4-lewo
 	//-------------------------------------------------------------------------
 
-	int aktualnieWiersz= 0, aktualnieKolumna= 0; // zaczynamy w punkcie startowym - w kodzie (0,0), na planszy (1,1)
-	int ostatniRuch{}, przedostatniRuch{};
 
-	int iloscGenerowanychPol{};
-	while (iloscGenerowanychPol <= WielkoscPlanszy * WielkoscPlanszy / 2)
+	bool doszedlDoKonca{};
+	while (doszedlDoKonca != 1)
 	{
-		bool dobrze{};
-		while (dobrze == 0)
+		if (aktualnieWiersz == 10 && aktualnieKolumna == 10)
 		{
-			dobrze = 1;
-			kierunek = kier(generator);
-
-			switch (kierunek)
+			doszedlDoKonca = 1;
+		}
+		else
+		{
+			bool dobrze{};
+			while (dobrze == 0)
 			{
-				case 1: //gora
+				dobrze = 1;
+				kierunek = kier(generator);
+
+				switch (kierunek)
 				{
-					if (aktualnieWiersz > 0 ) // && ostatniRuch == 1 && przedostatniRuch != 1
+					case 1: //gora
 					{
-						aktualnieWiersz--;
-						PlanszaWew[aktualnieWiersz][aktualnieKolumna] = 1;
-						PlanszaWyswietlana[aktualnieWiersz][aktualnieKolumna] = ' ';
-						iloscGenerowanychPol++;
+						if (aktualnieWiersz > 1) //zeby nie wychodzil poza plansze
+						{//--------------------------------------------------------------
+							aktualnieWiersz--;
+							PlanszaWew[aktualnieWiersz][aktualnieKolumna] = 1;			  
+							PlanszaWyswietlana[aktualnieWiersz][aktualnieKolumna] = ' '; // przesuwamy sie o 2 pola, by nie tworzyc placow 
+							aktualnieWiersz--;
+							PlanszaWew[aktualnieWiersz][aktualnieKolumna] = 1;
+							PlanszaWyswietlana[aktualnieWiersz][aktualnieKolumna] = ' ';
+						}//--------------------------------------------------------------
+						else
+							dobrze = 0;
+						break;
 					}
-					else
-						dobrze = 0;
-					break;
-				}
-				case 2: //prawo
-				{
-					if (aktualnieKolumna < WielkoscPlanszy)
+					case 2: //prawo
 					{
-						aktualnieKolumna++;
-						PlanszaWew[aktualnieWiersz][aktualnieKolumna] = 1;
-						PlanszaWyswietlana[aktualnieWiersz][aktualnieKolumna] = ' ';
-						iloscGenerowanychPol++;
+						if (aktualnieKolumna < WielkoscPlanszy - 2)
+						{
+							aktualnieKolumna++;
+							PlanszaWew[aktualnieWiersz][aktualnieKolumna] = 1;
+							PlanszaWyswietlana[aktualnieWiersz][aktualnieKolumna] = ' ';
+							aktualnieKolumna++;
+							PlanszaWew[aktualnieWiersz][aktualnieKolumna] = 1;
+							PlanszaWyswietlana[aktualnieWiersz][aktualnieKolumna] = ' ';
+						}
+						else
+							dobrze = 0;
+						break;
 					}
-					else
-						dobrze = 0;
-					break;
-				}
-				case 3: //dol
-				{
-					if (aktualnieWiersz < WielkoscPlanszy)
+					case 3: //dol
 					{
-						aktualnieWiersz++;
-						PlanszaWew[aktualnieWiersz][aktualnieKolumna] = 1;
-						PlanszaWyswietlana[aktualnieWiersz][aktualnieKolumna] = ' ';
-						iloscGenerowanychPol++;
+						if (aktualnieWiersz < WielkoscPlanszy - 2)
+						{
+							aktualnieWiersz++;
+							PlanszaWew[aktualnieWiersz][aktualnieKolumna] = 1;
+							PlanszaWyswietlana[aktualnieWiersz][aktualnieKolumna] = ' ';
+							aktualnieWiersz++;
+							PlanszaWew[aktualnieWiersz][aktualnieKolumna] = 1;
+							PlanszaWyswietlana[aktualnieWiersz][aktualnieKolumna] = ' ';
+						}
+						else
+							dobrze = 0;
+						break;
 					}
-					else
-						dobrze = 0;
-					break;
-				}
-				case 4: //lewo
-				{
-					if (aktualnieKolumna > 0)
+					case 4: //lewo
 					{
-						aktualnieKolumna--;
-						PlanszaWew[aktualnieWiersz][aktualnieKolumna] = 1;
-						PlanszaWyswietlana[aktualnieWiersz][aktualnieKolumna] = ' ';
-						iloscGenerowanychPol++;
+						if (aktualnieKolumna > 1)
+						{
+							aktualnieKolumna--;
+							PlanszaWew[aktualnieWiersz][aktualnieKolumna] = 1;
+							PlanszaWyswietlana[aktualnieWiersz][aktualnieKolumna] = ' ';
+							aktualnieKolumna--;
+							PlanszaWew[aktualnieWiersz][aktualnieKolumna] = 1;
+							PlanszaWyswietlana[aktualnieWiersz][aktualnieKolumna] = ' ';
+						}
+						else
+							dobrze = 0;
+						break;
 					}
-					else
-						dobrze = 0;
-					break;
 				}
 			}
-			ostatniRuch = kierunek;
-
 		}
 	}
 	
 }
 
 void Clas::GenerowaniePlanszy()
-{//			ilosc generowanych pol
-	/*int x = WielkoscPlanszy* WielkoscPlanszy / 2;
-	for (int i = 1; i <= x; i++)
-	{
-		GenerowanieSciany();
-	}*/
+{
 	GenerowanieSciany();
 
 
@@ -224,50 +233,3 @@ void Clas::GenerowaniePlanszy()
 	cout << endl;
 	WyswietlTabliceWew();
 }
-
-
-/*
-
-// generuje miejsce na planszy i jezeli sa spelnione pewne warunki, to usuwa sciane
-void Clas::GenerowanieSciany()
-{
-	PlanszaWew[0][0] = 8; // oznaczernie poczatku planszy na planszy roboczej
-	PlanszaWew[WielkoscPlanszy-1][WielkoscPlanszy - 1] = 9; // oznaczernie konca planszy na planszy roboczej
-
-	PlanszaWyswietlana[0][0] = ' '; // oznaczernie poczatku planszy na planszy wyswietlanej
-	PlanszaWyswietlana[WielkoscPlanszy - 1][WielkoscPlanszy - 1] = ' '; // oznaczernie konca planszy na planszy wyswietlanej
-
-	//-------------------------------------------------------------
-	int kolumna, wiersz;
-	mt19937 generator(time(nullptr));							   // generator wybierania pola
-	uniform_int_distribution<int> pole(0, WielkoscPlanszy - 1);
-	//-------------------------------------------------------------
-
-	bool dobrze{};
-	while (dobrze == 0)
-	{
-		kolumna = pole(generator);
-		wiersz = pole(generator);
-
-		if ( (PlanszaWew[wiersz - 1][kolumna] == 8 || PlanszaWew[wiersz][kolumna - 1] == 8)  ||  (PlanszaWew[wiersz - 1][kolumna] == 0 || PlanszaWew[wiersz][kolumna - 1] == 0) )
-		{
-			if (PlanszaWew[wiersz][kolumna] == 0 || PlanszaWew[wiersz][kolumna] == 8 || PlanszaWew[wiersz][kolumna] == 9)
-				dobrze = 0;
-			else
-			{
-				dobrze = 1;
-				PlanszaWew[wiersz][kolumna] = 0;
-				PlanszaWyswietlana[wiersz][kolumna] = ' '; //docelowo do usuniêcia
-			}
-		}
-	}
-
-}
-
-
-
-(2 * WielkoscPlanszy)-3
-
-
-
-*/
