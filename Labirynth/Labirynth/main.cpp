@@ -2,9 +2,12 @@
 
 int main()
 {
-	Clas obj;
+	//setlocale(LC_ALL, "polish"); // do polskich znaków
 
-	obj.GenerowaniePlanszy();
+	Clas gra;
+
+	gra.Gra_1os();
+//	gra.GenerowaniePlanszy();
 
 	cout << endl;
 	system("pause");
@@ -13,7 +16,7 @@ int main()
 /*
 
 PlanszaZew:
-	niewiadoma 0xCF
+	niewiadoma ?
 	przejœcie " "
 	œciana 0xFE 
 

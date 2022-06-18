@@ -1,10 +1,10 @@
 ﻿  main.cpp
-C:\Users\Szymon\Documents\GitHub\Labirynt\Labirynth\Labirynth\Class.h(17,12): warning C4309: "inicjowanie": obcięcie stałej wartości
-C:\Users\Szymon\Documents\GitHub\Labirynt\Labirynth\Labirynth\Class.h(17,24): warning C4309: "inicjowanie": obcięcie stałej wartości
-C:\Users\Szymon\Documents\GitHub\Labirynt\Labirynth\Labirynth\Class.h(18,11): warning C4309: "inicjowanie": obcięcie stałej wartości
-C:\Users\Szymon\Documents\GitHub\Labirynt\Labirynth\Labirynth\Class.h(18,22): warning C4309: "inicjowanie": obcięcie stałej wartości
-C:\Users\Szymon\Documents\GitHub\Labirynt\Labirynth\Labirynth\Class.h(18,33): warning C4309: "inicjowanie": obcięcie stałej wartości
-C:\Users\Szymon\Documents\GitHub\Labirynt\Labirynth\Labirynth\Class.h(18,44): warning C4309: "inicjowanie": obcięcie stałej wartości
-C:\Users\Szymon\Documents\GitHub\Labirynt\Labirynth\Labirynth\Class.h(66,31): warning C4309: "=": obcięcie stałej wartości
-C:\Users\Szymon\Documents\GitHub\Labirynt\Labirynth\Labirynth\Class.h(160,24): warning C4244: "argument": konwersja z "time_t" do "unsigned int", możliwa utrata danych
+C:\Users\Szymon\Documents\GitHub\Labirynt\Labirynth\Labirynth\Class.h(18,12): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\Szymon\Documents\GitHub\Labirynt\Labirynth\Labirynth\Class.h(18,24): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\Szymon\Documents\GitHub\Labirynt\Labirynth\Labirynth\Class.h(19,11): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\Szymon\Documents\GitHub\Labirynt\Labirynth\Labirynth\Class.h(19,22): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\Szymon\Documents\GitHub\Labirynt\Labirynth\Labirynth\Class.h(19,33): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\Szymon\Documents\GitHub\Labirynt\Labirynth\Labirynth\Class.h(19,44): warning C4309: "inicjowanie": obcięcie stałej wartości
+C:\Users\Szymon\Documents\GitHub\Labirynt\Labirynth\Labirynth\Class.h(71,31): warning C4309: "=": obcięcie stałej wartości
+C:\Users\Szymon\Documents\GitHub\Labirynt\Labirynth\Labirynth\Class.h(165,24): warning C4244: "argument": konwersja z "time_t" do "unsigned int", możliwa utrata danych
   Labirynth.vcxproj -> C:\Users\Szymon\Documents\GitHub\Labirynt\Labirynth\x64\Debug\Labirynth.exe

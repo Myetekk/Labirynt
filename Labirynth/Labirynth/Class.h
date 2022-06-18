@@ -2,10 +2,11 @@
 #include <iostream>
 #include <random>
 #include <windows.h>
+#include <string>
+#include <cmath> // do abs()
+//#include <locale.h> //by wyœwietliæ polskie znaki
 using namespace std;
 
-//int PlanszaWew[11][11]{ 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2 };
-//char PlanszaWyswietlana[11][11]{ 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF,0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF, 0xCF };
 
 int PlanszaWew[11][11]{}; // PlanszaWew bêdzie bazowo wype³niona "2"
 char PlanszaWyswietlana[11][11]{}; //PlanszaWyswietlana bêdzie bazowo wype³niona "0xFE"
@@ -17,7 +18,10 @@ int WielkoscPlanszy = 11;
 char poz = 0xC4, pio = 0xB3;//kreska pozioma, pionowa
 char lg = 0xDA, pg = 0xBF, ld = 0xC0, pd = 0xD9; // rogi dla planszy lg - lewy górny, pg - prawy górny itd.
 
-string wspó³rzêdna{}; //tu bêdziemy podawaæ wspó³rzêdn¹
+string gdzie{}, gdzie_0 = "A1";
+//do "gdzie" bêdziemy podawaæ wspó³rzêdn¹,
+//gdzie_0 zapisze poprzedni¹ pozycjê
+
 
 COORD c; //do zmieniania pozycji kursora
 /*c.X = xj;
@@ -33,6 +37,7 @@ public:
 	void WyswietlTabliceWew();
 	void GenerowaniePrzejœcia();
 	void GenerowaniePlanszy();
+	bool NowaPozycja();
 
 	void Gracz1_Wyœwietl_Swoj¹Planszê();
 	void Gra_1os();
@@ -46,9 +51,9 @@ void Clas::Kolory()
 	HANDLE hConsole1 = GetStdHandle(STD_OUTPUT_HANDLE);
 	GetConsoleScreenBufferInfoEx(hConsole1, &info1);
 
-	info1.ColorTable[0] = RGB(16, 11, 7);//ten kolor jest t³em
-	info1.ColorTable[1] = RGB(105, 168, 226); //kolor gracza 1
-	info1.ColorTable[2] = RGB(207, 115, 54);//kolor gracza 2
+	info1.ColorTable[0] = RGB(16, 11, 7); //ten kolor jest t³em
+	info1.ColorTable[1] = RGB(105, 168, 226); //kolor gracza 1 - niebieski
+	info1.ColorTable[2] = RGB(207, 115, 54); //kolor gracza 2 - pomarañczowy
 
 	SetConsoleScreenBufferInfoEx(hConsole1, &info1);
 
@@ -62,7 +67,7 @@ void Clas::Uzupe³nieniePlansz()
 	{
 		for (int j = 0; j < WielkoscPlanszy; j++)
 		{
-			PlanszaWew[i][j] = 2;
+			//PlanszaWew[i][j] = 2;
 			PlanszaWyswietlana[i][j] = 0xFE;
 		}
 	}
@@ -302,8 +307,101 @@ void Clas::Gracz1_Wyœwietl_Swoj¹Planszê()
 	cout << pd << endl;	
 }
 
+bool Clas::NowaPozycja()
+{
+	bool poruszenie_OX = false, poruszenie_OY = false;
+	cin >> gdzie;
+
+	if (gdzie.size() < 2 || gdzie.size() > 3) 
+		return false;
+
+	if ((gdzie[0] < 'A' || gdzie[0] > 'K') && (gdzie[0] < 'a' || gdzie[0] > 'k'))
+		return false;
+//-----------------------------------------------------	
+	if ((gdzie[0] >= 'a' || gdzie[0] <= 'k'))
+		gdzie[0] -= 32;	
+
+	if (gdzie.size() == 3)
+	{
+		if (gdzie[1] == '1')
+			if (gdzie[2] < '0' || gdzie[2] > '1')
+				return false;
+			else if (gdzie[1] < '1' || gdzie[1] > '9')
+				return false;
+	}	
+
+//------------------------------------------------------
+	if (abs(gdzie[0] - gdzie_0[0] > 1))
+		return false;
+	else if(abs(gdzie[0] - gdzie_0[0] == 1))
+		poruszenie_OX = true;
+
+//------------------------------------------------------
+	if (gdzie.size() == 2 && gdzie_0.size() == 2)
+	{
+		if (abs(gdzie[1] - gdzie_0[1]) > 1)
+			return false;
+		else if (abs(gdzie[1] - gdzie_0[1]) == 1)
+			poruszenie_OY = true;
+
+		if (gdzie[0] == gdzie_0[0])
+			if (gdzie[1] == gdzie_0[1])
+				return false;
+	}
+	else if (gdzie.size() == 3 && gdzie_0.size() == 3)
+	{
+		if (abs(gdzie[2] - gdzie_0[2]) > 1)
+			return false;
+		else if (abs(gdzie[2] - gdzie_0[2]) == 1)
+			poruszenie_OY = true;
+
+		if (gdzie[0] == gdzie_0[0])
+			if (gdzie[1] == gdzie_0[1])
+				if (gdzie[2] == gdzie_0[2])
+					return false;
+	}
+	else if (gdzie.size() == 2 && gdzie_0.size() == 3)
+	{
+		if (gdzie[1] != '9' && gdzie_0[2] != '0')
+			return false;
+		else if (gdzie[1] == '1' && gdzie_0[1] == '1')
+			return false;
+		else
+			poruszenie_OY = true;
+	}
+	else if (gdzie.size() == 3 && gdzie_0.size() == 2)
+	{
+		if (gdzie[2] != '0' && gdzie_0[1] != '9')
+			return false;
+		else if (gdzie[1] == '1' && gdzie_0[1] == '1')
+			return false;
+		else
+			poruszenie_OY = true;
+	}
+//--------------------------------------------------------
+	if (poruszenie_OX == true && poruszenie_OY == true)
+		return false;
+	return true;
+}
+
 void Clas::Gra_1os()
 {
+	Kolory();
+	Uzupe³nieniePlansz();
+	GenerowaniePrzejœcia();
+
+	Gracz1_Wyœwietl_Swoj¹Planszê();
+	cout << endl;
+
+	WyswietlTabliceZew();
+	bool tf = false;
+	cout << "gdzie chcesz sie poruszyc: ";
+	do
+	{
+		tf = NowaPozycja();
+	} while (tf == false);
+
+	cout << endl << "OK";
 
 }
 
