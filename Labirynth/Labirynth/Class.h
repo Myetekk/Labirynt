@@ -19,8 +19,11 @@ char poz = 0xC4, pio = 0xB3;//kreska pozioma, pionowa
 char lg = 0xDA, pg = 0xBF, ld = 0xC0, pd = 0xD9; // rogi dla planszy lg - lewy górny, pg - prawy górny itd.
 
 string gdzie{}, gdzie_0 = "A1";
+int x{}, y{};
 //do "gdzie" bêdziemy podawaæ wspó³rzêdn¹,
 //gdzie_0 zapisze poprzedni¹ pozycjê
+
+int dobicia{}; //do trybu 1-osobowego
 
 
 COORD c; //do zmieniania pozycji kursora
@@ -38,6 +41,7 @@ public:
 	void GenerowaniePrzejœcia();
 	void GenerowaniePlanszy();
 	bool NowaPozycja();
+	bool CzyDobije();
 
 	void Gracz1_Wyœwietl_Swoj¹Planszê();
 	void Gra_1os();
@@ -332,7 +336,10 @@ bool Clas::NowaPozycja()
 		}
 		else
 			return false;
-	}	
+	}
+	else
+		if (gdzie[1] == '0')
+			return false;
 
 //------------------------------------------------------
 	if (abs(gdzie[0] - gdzie_0[0] > 1))
@@ -391,6 +398,31 @@ bool Clas::NowaPozycja()
 	return true;
 }
 
+bool Clas::CzyDobije()
+{
+	//cout << int(gdzie[0]) << int(gdzie[1]);
+	//int x = int(gdzie[0])-65, y;
+	x = int(gdzie[0]) - 65;
+	if (gdzie.size() == 2)
+	{
+		y = int(gdzie[1]) - 49;
+		if (PlanszaWyswietlana[y][x] != ' ')
+		{
+			cout << "(" << PlanszaWyswietlana[y][x] << ")  ";
+			return true;
+		}
+	}
+	else // gdzie.size() == 3
+	{
+		y = int(gdzie[2]) - 39;
+		if (PlanszaWyswietlana[y][x] != ' ')
+		{
+			return true;
+		}
+	}		
+	return false;
+}
+
 void Clas::Gra_1os()
 {
 	Kolory();
@@ -401,15 +433,69 @@ void Clas::Gra_1os()
 	cout << endl;
 
 	WyswietlTabliceZew();
-	bool tf = false;
-	cout << "gdzie chcesz sie poruszyc: ";
+
+	
 	do
 	{
-		tf = NowaPozycja();
-	} while (tf == false);
+		do
+		{
+			c.X = 0;
+			c.Y = 31;
+			SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), c);
+			cout << "\x1b[2K"; //usuwa ca³¹ liniê
+			cout << "gdzie chcesz sie poruszyc: ";
 
-	cout << endl << "OK";
+		} while (!NowaPozycja());
+		//cout << endl << "sensowna pozycja" << endl;
 
+		if (!CzyDobije())
+		{
+			cout << "nie dobije";
+
+			Gracz1_TwojaPlansza[x][y] = '*';
+			c.X = 5 + 3 * x;
+			c.Y = 3 + y;
+			SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), c);
+			cout << Gracz1_TwojaPlansza[x][y];
+
+			PlanszaWyswietlana[x][y] = '*';
+			c.X = 5 + 3 * x;
+			c.Y = 19 + y;
+			SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), c);
+			cout << PlanszaWyswietlana[x][y];
+
+			gdzie_0 = gdzie;
+		}
+		else if (x == WielkoscPlanszy-1 && y == WielkoscPlanszy-1)
+		{
+			Gracz1_TwojaPlansza[x][y] = '*';
+			c.X = 5 + 3 * x;
+			c.Y = 3 + y;
+			SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), c);
+			cout << Gracz1_TwojaPlansza[x][y];
+
+			PlanszaWyswietlana[x][y] = '*';
+			c.X = 5 + 3 * x;
+			c.Y = 19 + y;
+			SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), c);
+			cout << PlanszaWyswietlana[x][y];
+
+			c.X = 0;
+			c.Y = 33;
+			SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), c);
+			cout << "KONIEC GRY!!!";
+		}
+		else
+		{
+			cout << "dobije";
+			dobicia++;
+		}
+	} while (x != WielkoscPlanszy-1 || y != WielkoscPlanszy-1);
+	
+
+	c.X = 0;
+	c.Y = 34;
+	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), c);
 }
 
 void Clas::GenerowaniePlanszy()
