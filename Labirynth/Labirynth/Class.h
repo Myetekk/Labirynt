@@ -324,10 +324,14 @@ bool Clas::NowaPozycja()
 	if (gdzie.size() == 3)
 	{
 		if (gdzie[1] == '1')
+		{
 			if (gdzie[2] < '0' || gdzie[2] > '1')
 				return false;
 			else if (gdzie[1] < '1' || gdzie[1] > '9')
 				return false;
+		}
+		else
+			return false;
 	}	
 
 //------------------------------------------------------
@@ -362,18 +366,21 @@ bool Clas::NowaPozycja()
 	}
 	else if (gdzie.size() == 2 && gdzie_0.size() == 3)
 	{
-		if (gdzie[1] != '9' && gdzie_0[2] != '0')
-			return false;
-		else if (gdzie[1] == '1' && gdzie_0[1] == '1')
+		if (gdzie_0[2] == '0')
+		{
+			if (gdzie[1] != '9')
+				return false;
+		}
+		else if (gdzie_0[2] == '1')
 			return false;
 		else
 			poruszenie_OY = true;
 	}
 	else if (gdzie.size() == 3 && gdzie_0.size() == 2)
 	{
-		if (gdzie[2] != '0' && gdzie_0[1] != '9')
+		if (gdzie_0[1] != '9')
 			return false;
-		else if (gdzie[1] == '1' && gdzie_0[1] == '1')
+		else if (gdzie[2] == '1')
 			return false;
 		else
 			poruszenie_OY = true;
