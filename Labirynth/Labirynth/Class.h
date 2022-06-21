@@ -4,7 +4,6 @@
 #include <windows.h>
 #include <string>
 #include <cmath> // do abs()
-//#include <locale.h> //by wyœwietliæ polskie znaki
 using namespace std;
 
 
@@ -40,25 +39,27 @@ class Clas
 public:
 	void Menu();
 	void Ustawienia();
+
 	void Kolory();
 	void Uzupe³nieniePlansz();
 	void WyswietlTabliceZew();
 	void WyswietlTabliceWew();
 	void GenerowaniePrzejœcia();
-	void GenerowaniePlanszy();
+	void GenerowaniePlanszy(); // tryb 2os
 	bool NowaPozycja();
 	bool CzyDobije();
 
 	void Gracz1_Wyœwietl_Swoj¹Planszê();
 	void Gra_1os();
 };
-
+//------------------------------------------
+// intro
 void Clas::Menu()
 {
 	bool koniecMenu = 0;
 	do
 	{
-		int wyborMenu;
+		string wyborMenu;
 		bool dobrze = 1;
 		system("CLS");
 		cout << "LABIRYNT " << endl << endl;
@@ -72,29 +73,32 @@ void Clas::Menu()
 		{
 			cout << endl << "Tw" << ó << "j wyb" << ó << "r: ";
 			cin >> wyborMenu;
-			if (wyborMenu == 1)
+			if (wyborMenu.size() == 1)
 			{
-				system("CLS");
-				
-				system("pause");
-			}
-			else if (wyborMenu == 2)
-			{
-				system("CLS");
-				Gra_1os();
-				system("pause");
-			}
-			else if (wyborMenu == 3)
-			{
-				system("CLS");
-				Ustawienia();
-				system("pause");
-			}
-			else if (wyborMenu == 4)
-			{
-				system("CLS");
-				koniecMenu = 1;
-			}
+				if (wyborMenu[0] == '1')
+				{
+					system("CLS");
+
+					system("pause");
+				}
+				else if (wyborMenu[0] == '2')
+				{
+					system("CLS");
+					Gra_1os();
+					system("pause");
+				}
+				else if (wyborMenu[0] == '3')
+				{
+					system("CLS");
+					Ustawienia();
+					system("pause");
+				}
+				else if (wyborMenu[0] == '4')
+				{
+					system("CLS");
+					koniecMenu = 1;
+				}
+			}			
 			else
 			{
 				cout << endl << "Nieprawid" << ³ << "owa liczba, podaj ponownie. ";
@@ -160,6 +164,7 @@ void Clas::Ustawienia()
 		} while (dobrze == 0);
 	} while (dobrzeUstawienia == 0);
 }
+//------------------------------------------
 
 void Clas::Kolory()
 {
@@ -181,12 +186,12 @@ void Clas::Kolory()
 
 void Clas::Uzupe³nieniePlansz()
 {
-	for (int i = 0; i < WielkoscPlanszy; i++)
+	for (int y = 0; y < WielkoscPlanszy; y++)
 	{
-		for (int j = 0; j < WielkoscPlanszy; j++)
+		for (int x = 0; x < WielkoscPlanszy; x++)
 		{
 			//PlanszaWew[i][j] = 2;
-			PlanszaWyswietlana[i][j] = 0xFE;
+			PlanszaWyswietlana[y][x] = 0xFE;
 		}
 	}
 }
@@ -374,11 +379,11 @@ void Clas::GenerowaniePrzejœcia()
 
 void Clas::Gracz1_Wyœwietl_Swoj¹Planszê()
 {
-	for (int i = 0; i < WielkoscPlanszy; i++)
+	for (int y = 0; y < WielkoscPlanszy; y++)
 	{
-		for (int j = 0; j < WielkoscPlanszy; j++)
+		for (int x = 0; x < WielkoscPlanszy; x++)
 		{
-			Gracz1_TwojaPlansza[i][j] = '?';
+			Gracz1_TwojaPlansza[y][x] = '?';
 		}
 	}
 	Gracz1_TwojaPlansza[0][0] = '*'; // bo na start zaczynamy z pozycji A1
@@ -402,19 +407,19 @@ void Clas::Gracz1_Wyœwietl_Swoj¹Planszê()
 		cout << poz << poz << poz;
 	cout << pg << endl;
 	//-----------------------------------------------------
-	for (int i = 0; i <= WielkoscPlanszy - 1; i++)
+	for (int y = 0; y <= WielkoscPlanszy - 1; y++)
 	{
 		cout.width(3);
-		cout << i + 1 << pio;
+		cout << y + 1 << pio;
 
-		int j = 0;
+		int x = 0;
 		cout.width(2);
-		cout << Gracz1_TwojaPlansza[i][j];
+		cout << Gracz1_TwojaPlansza[y][x];
 
-		for (int j = 1; j <= WielkoscPlanszy - 1; j++)   //œrodek
+		for (int x = 1; x <= WielkoscPlanszy - 1; x++)   //œrodek
 		{
 			cout.width(3);
-			cout << Gracz1_TwojaPlansza[i][j];
+			cout << Gracz1_TwojaPlansza[y][x];
 		}
 		cout << ' ' << pio << endl;
 	}
@@ -458,7 +463,7 @@ bool Clas::NowaPozycja()
 //------------------------------------------------------
 	if (abs(gdzie[0] - gdzie_0[0] > 1))
 		return false;
-	else if(abs(gdzie[0] - gdzie_0[0] == 1))
+	else if(abs(gdzie[0] - gdzie_0[0]) == 1)
 		poruszenie_OX = true;
 
 //------------------------------------------------------
@@ -514,8 +519,6 @@ bool Clas::NowaPozycja()
 
 bool Clas::CzyDobije()
 {
-	//cout << int(gdzie[0]) << int(gdzie[1]);
-	//int x = int(gdzie[0])-65, y;
 	x = int(gdzie[0]) - 65;
 	if (gdzie.size() == 2)
 	{
@@ -548,7 +551,6 @@ void Clas::Gra_1os()
 
 	if (devmode == 1)
 		WyswietlTabliceZew();
-
 	
 	do
 	{
@@ -558,7 +560,7 @@ void Clas::Gra_1os()
 			c.Y = 31;
 			SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), c);
 			cout << "\x1b[2K"; //usuwa ca³¹ liniê
-			cout << "gdzie chcesz sie poruszyc: ";
+			cout << "gdzie chcesz si"<< ê <<" poruszy" << æ << ": ";
 
 		} while (!NowaPozycja());
 		//cout << endl << "sensowna pozycja" << endl;
@@ -566,18 +568,20 @@ void Clas::Gra_1os()
 		if (!CzyDobije())
 		{
 			cout << "nie dobije";
+			Sleep(400);
+			cout << '\r' << "\x1b[2K";
 
-			Gracz1_TwojaPlansza[x][y] = '*';
+			Gracz1_TwojaPlansza[y][x] = '*';
 			c.X = 5 + 3 * x;
 			c.Y = 3 + y;
 			SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), c);
-			cout << Gracz1_TwojaPlansza[x][y];
+			cout << Gracz1_TwojaPlansza[y][x];
 
-			PlanszaWyswietlana[x][y] = '*';
+			PlanszaWyswietlana[y][x] = '*';
 			c.X = 5 + 3 * x;
 			c.Y = 19 + y;
 			SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), c);
-			cout << PlanszaWyswietlana[x][y];
+			cout << PlanszaWyswietlana[y][x];
 
 			gdzie_0 = gdzie;
 		}
@@ -602,7 +606,16 @@ void Clas::Gra_1os()
 		}
 		else
 		{
-			cout << "dobije";
+			cout << "dobije do " << œ << "ciany";			
+			Sleep(1000);
+			cout << '\r' << "\x1b[2K";
+
+			c.X = 5 + 3 * x;
+			c.Y = 3 + y;
+			SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), c);
+			Gracz1_TwojaPlansza[y][x] = 0xFE;
+			cout << Gracz1_TwojaPlansza[y][x];
+
 			dobicia++;
 		}
 	} while (x != WielkoscPlanszy-1 || y != WielkoscPlanszy-1);
