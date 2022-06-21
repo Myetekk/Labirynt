@@ -31,9 +31,15 @@ COORD c; //do zmieniania pozycji kursora
 c.Y = yj;
 SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), c);*/
 
+char ³ = 0x88, Ÿ = 0xAB, ó = 0xA2, œ = 0x98, æ = 0x86, ¿ = 0xBE, ê = 0xA9, ¹ = 0xA5; // polskie znaki
+
+bool devmode = 0;
+
 class Clas
 {
 public:
+	void Menu();
+	void Ustawienia();
 	void Kolory();
 	void Uzupe³nieniePlansz();
 	void WyswietlTabliceZew();
@@ -46,6 +52,114 @@ public:
 	void Gracz1_Wyœwietl_Swoj¹Planszê();
 	void Gra_1os();
 };
+
+void Clas::Menu()
+{
+	bool koniecMenu = 0;
+	do
+	{
+		int wyborMenu;
+		bool dobrze = 1;
+		system("CLS");
+		cout << "LABIRYNT " << endl << endl;
+		cout << " 1. Gra dla dw" << ó << "ch os" << ó << "b " << endl << endl;
+		cout << "2.  Gra dla jednej osoby " << endl << endl;
+		cout << " 3. Ustawienia " << endl << endl;
+		cout << "4.  Wyjd" << Ÿ << endl << endl;
+		cout << endl;
+
+		do
+		{
+			cout << endl << "Tw" << ó << "j wyb" << ó << "r: ";
+			cin >> wyborMenu;
+			if (wyborMenu == 1)
+			{
+				system("CLS");
+				
+				system("pause");
+			}
+			else if (wyborMenu == 2)
+			{
+				system("CLS");
+				Gra_1os();
+				system("pause");
+			}
+			else if (wyborMenu == 3)
+			{
+				system("CLS");
+				Ustawienia();
+				system("pause");
+			}
+			else if (wyborMenu == 4)
+			{
+				system("CLS");
+				koniecMenu = 1;
+			}
+			else
+			{
+				cout << endl << "Nieprawid" << ³ << "owa liczba, podaj ponownie. ";
+				dobrze = 0;
+			}
+		} while (dobrze == 0);
+	} while (koniecMenu == 0);
+}
+
+void Clas::Ustawienia()
+{
+	int wybor;
+	bool dobrze = 1, dobrzeUstawienia = 0;
+	do
+	{
+		cout << "USTAWIENIA" << endl << endl;
+
+		cout << " 1. devmode (";   if (devmode == 0)cout << "wy" << ³ << ¹ << "czone) ";   if (devmode == 1)cout << "w" << ³ << ¹ << "czone) ";   cout << endl << endl;
+		cout << "2.  Powr" << ó << "t do menu " << endl << endl << endl;
+		do
+		{
+			dobrzeUstawienia = 0;
+			dobrze = 1;
+			cout << endl << "Tw" << ó << "j wyb" << ó << "r: ";
+			cin >> wybor;
+
+			
+			if (wybor == 1)
+			{
+				system("CLS");
+				bool dobryWybor{};
+				cout << "W" << ³ << ¹ << "czenie devmode powoduje pokazywanie si"<<ê<<" rozwi" << ¹ << "zanej planszy. " << endl;
+				cout << endl << endl;
+				do
+				{
+					dobryWybor = 1;
+					
+					cout << "Czy chcesz w" << ³ << ¹ << "czy" << æ << " devmode? (1 -tak, 0 -nie): ";
+					cin >> devmode;
+
+					if (devmode == 0 || devmode == 1)
+					{
+						system("CLS");
+					}
+					else
+					{
+						cout << endl << "Nieprawid" << ³ << "owa liczba, podaj ponownie. " << endl;
+						dobryWybor = 0;
+					}
+
+				} while (dobryWybor == 0);
+			}
+			else if (wybor == 2)
+			{
+				system("CLS");
+				dobrzeUstawienia = 1;
+			}
+			else
+			{
+				cout << endl << "Nieprawid" << ³ << "owa liczba, podaj ponownie. ";
+				dobrze = 0;
+			}
+		} while (dobrze == 0);
+	} while (dobrzeUstawienia == 0);
+}
 
 void Clas::Kolory()
 {
@@ -432,7 +546,8 @@ void Clas::Gra_1os()
 	Gracz1_Wyœwietl_Swoj¹Planszê();
 	cout << endl;
 
-	WyswietlTabliceZew();
+	if (devmode == 1)
+		WyswietlTabliceZew();
 
 	
 	do
@@ -500,7 +615,7 @@ void Clas::Gra_1os()
 
 void Clas::GenerowaniePlanszy()
 {
-	Kolory();
+	/*Kolory();
 	Uzupe³nieniePlansz();
 
 	GenerowaniePrzejœcia();
@@ -508,7 +623,7 @@ void Clas::GenerowaniePlanszy()
 	Gracz1_Wyœwietl_Swoj¹Planszê();
 	cout << endl;
 
-	WyswietlTabliceZew();
+	WyswietlTabliceZew();*/
 
 	//WyswietlTabliceWew();
 }
