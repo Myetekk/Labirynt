@@ -11,6 +11,7 @@ int PlanszaWew[11][11]{}; // PlanszaWew bêdzie bazowo wype³niona "2"
 char PlanszaWyswietlana[11][11]{}; //PlanszaWyswietlana bêdzie bazowo wype³niona "0xFE"
 
 char Gracz1_TwojaPlansza[11][11]{};
+char Gracz2_TwojaPlansza[11][11]{};
 
 int WielkoscPlanszy = 11;
 
@@ -45,12 +46,14 @@ public:
 	void WyswietlTabliceZew();
 	void WyswietlTabliceWew();
 	void GenerowaniePrzejœcia();
-	void GenerowaniePlanszy(); // tryb 2os
 	bool NowaPozycja();
 	bool CzyDobije();
 
 	void Gracz1_Wyœwietl_Swoj¹Planszê();
+	void Gracz2_Wyœwietl_Swoj¹Planszê();
+
 	void Gra_1os();
+	void Gra_2os();
 };
 //------------------------------------------
 // intro
@@ -71,6 +74,7 @@ void Clas::Menu()
 
 		do
 		{
+			dobrze = 1;
 			cout << endl << "Tw" << ó << "j wyb" << ó << "r: ";
 			cin >> wyborMenu;
 			if (wyborMenu.size() == 1)
@@ -78,7 +82,7 @@ void Clas::Menu()
 				if (wyborMenu[0] == '1')
 				{
 					system("CLS");
-
+					Gra_2os();
 					system("pause");
 				}
 				else if (wyborMenu[0] == '2')
@@ -110,7 +114,7 @@ void Clas::Menu()
 
 void Clas::Ustawienia()
 {
-	int wybor;
+	string wybor;
 	bool dobrze = 1, dobrzeUstawienia = 0;
 	do
 	{
@@ -126,10 +130,11 @@ void Clas::Ustawienia()
 			cin >> wybor;
 
 			
-			if (wybor == 1)
+			if (wybor[0] == '1')
 			{
 				system("CLS");
 				bool dobryWybor{};
+				string devmodeWybor{};
 				cout << "W" << ³ << ¹ << "czenie devmode powoduje pokazywanie si"<<ê<<" rozwi" << ¹ << "zanej planszy. " << endl;
 				cout << endl << endl;
 				do
@@ -137,11 +142,17 @@ void Clas::Ustawienia()
 					dobryWybor = 1;
 					
 					cout << "Czy chcesz w" << ³ << ¹ << "czy" << æ << " devmode? (1 -tak, 0 -nie): ";
-					cin >> devmode;
+					cin >> devmodeWybor;
 
-					if (devmode == 0 || devmode == 1)
+					if (devmodeWybor[0] == '1')
 					{
 						system("CLS");
+						devmode = 1;
+					}
+					else if (devmodeWybor[0] == '0')
+					{
+						system("CLS");
+						devmode = 0;
 					}
 					else
 					{
@@ -151,7 +162,7 @@ void Clas::Ustawienia()
 
 				} while (dobryWybor == 0);
 			}
-			else if (wybor == 2)
+			else if (wybor[0] == '2')
 			{
 				system("CLS");
 				dobrzeUstawienia = 1;
@@ -391,7 +402,7 @@ void Clas::Gracz1_Wyœwietl_Swoj¹Planszê()
 
 	//------------------------------------------------------------------------------------
 
-	cout << "  GRACZ 1 twoja plansza" << endl;
+	cout << "  GRACZ 1:" << endl;
 	cout << "   ";
 
 	for (int i = 0; i < WielkoscPlanszy; i++)
@@ -428,6 +439,76 @@ void Clas::Gracz1_Wyœwietl_Swoj¹Planszê()
 	for (int i = 1; i <= WielkoscPlanszy; i++)           //dolna ramka
 		cout << poz << poz << poz;
 	cout << pd << endl;	
+}
+
+void Clas::Gracz2_Wyœwietl_Swoj¹Planszê()
+{	//------------------------------------------------------------------------------------
+	for (int y = 0; y < WielkoscPlanszy; y++)
+	{																					  // przypisanie wartoœci
+		for (int x = 0; x < WielkoscPlanszy; x++)
+		{
+			Gracz2_TwojaPlansza[y][x] = '?';
+		}
+	}
+	Gracz2_TwojaPlansza[0][0] = '*'; // bo na start zaczynamy z pozycji A1
+	Gracz2_TwojaPlansza[WielkoscPlanszy - 1][WielkoscPlanszy - 1] = 'M'; //oznaczenie mety
+
+	//------------------------------------------------------------------------------------
+	int wierszKursora{};
+	c.X = 43;
+	c.Y = wierszKursora++;
+	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), c);
+	cout << "  GRACZ 2:" << endl;
+	c.X = 43;
+	c.Y = wierszKursora++;
+	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), c);
+	cout << "   ";
+	for (int i = 0; i < WielkoscPlanszy; i++)
+	{
+		cout.width(3);
+		cout << char(65 + i); //na górze tablicy wyœwietla A, B, C,...
+	}
+	cout << endl;
+
+	//-----------------------------------------------------
+	c.X = 43;
+	c.Y = wierszKursora++;
+	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), c);
+	cout << "   " << lg;
+	for (int i = 1; i <= WielkoscPlanszy; i++)           //górna ramka
+		cout << poz << poz << poz;
+	cout << pg << endl;
+	//-----------------------------------------------------
+	for (int y = 0; y <= WielkoscPlanszy - 1; y++)
+	{
+		c.X = 43;
+		c.Y = wierszKursora++;
+		SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), c);
+
+		cout.width(3);
+		cout << y + 1 << pio;
+
+		int x = 0;
+		cout.width(2);
+		cout << Gracz2_TwojaPlansza[y][x];
+
+		for (int x = 1; x <= WielkoscPlanszy - 1; x++)   //œrodek
+		{
+			cout.width(3);
+			cout << Gracz2_TwojaPlansza[y][x];
+		}
+		cout << ' ' << pio << endl;
+	}
+	//-----------------------------------------------------
+	c.X = 43;
+	c.Y = wierszKursora++;
+	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), c);
+	cout << "   " << ld;
+	for (int i = 1; i <= WielkoscPlanszy; i++)           //dolna ramka
+		cout << poz << poz << poz;
+	cout << pd << endl;
+
+	
 }
 
 bool Clas::NowaPozycja()
@@ -546,6 +627,12 @@ void Clas::Gra_1os()
 	Uzupe³nieniePlansz();
 	GenerowaniePrzejœcia();
 
+	system("CLS");
+	cout << "INSTRUKCJA: TRYB JEDNOOSOBOWY" << endl << endl;
+	cout << "Program wygenerowa" << ³ << " plansz" << ê << ". Twoim zadaniem jest znalezienie przej" << œ << "cia z jednego rogu mapy do drugiego. " << endl << endl;
+	system("pause");
+	system("CLS");
+
 	Gracz1_Wyœwietl_Swoj¹Planszê();
 	cout << endl;
 
@@ -557,7 +644,10 @@ void Clas::Gra_1os()
 		do
 		{
 			c.X = 0;
-			c.Y = 31;
+			if (devmode == 1)
+				c.Y = 31;
+			if (devmode == 0)
+				c.Y = 18;
 			SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), c);
 			cout << "\x1b[2K"; //usuwa ca³¹ liniê
 			cout << "gdzie chcesz si"<< ê <<" poruszy" << æ << ": ";
@@ -626,17 +716,71 @@ void Clas::Gra_1os()
 	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), c);
 }
 
-void Clas::GenerowaniePlanszy()
+void Clas::Gra_2os()
 {
-	/*Kolory();
+	Kolory();
 	Uzupe³nieniePlansz();
 
-	GenerowaniePrzejœcia();
+	system("CLS");
+	cout << "INSTRUKCJA: TRYB DWUOSOBOWY" << endl << endl;
+	cout << "Na pocz"<<¹<<"tku ka"<<¿<<"dy gracz tworzy plansze dla przeciwnika. Nast"<<ê<<"pnie rozpoczyna si"<<ê<<" rozgrywka. " << endl;
+	cout << "Gre zaczyna GRACZ1 i gra on tak d" << ³ << "ugo, a" << ¿ << " trafi w " << œ << "ciane. Wtedy nast" << ê << "puje zmiana graczy. I tak w k"<<ó<<³<<"ko, a" << ¿ << " kt" << ó << "ry" << œ << " dotrze do mety." << endl << endl;
+	system("pause");
+	system("CLS");
+
 
 	Gracz1_Wyœwietl_Swoj¹Planszê();
-	cout << endl;
+	//----------------------------------------------------------------
+	int wysokosc{};													  // Linia oddzielaj¹ca plansze
+	if (devmode == 1)
+		wysokosc = 29;
+	if (devmode == 0)
+		wysokosc = 16;
+	for (int i{}; i <= wysokosc+2; i++)
+	{
+		c.X = 41;
+		c.Y = i;
+		SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), c);
+		cout << "|";
+	}
+	//----------------------------------------------------------------
+	Gracz2_Wyœwietl_Swoj¹Planszê();
 
-	WyswietlTabliceZew();*/
 
-	//WyswietlTabliceWew();
+	//USTAWIANIE GRACZ 1
+	do
+	{
+		c.X = 0;
+		if (devmode == 1)
+			c.Y = 29;
+		if (devmode == 0)
+			c.Y = 16;
+		SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), c);
+		cout << "\x1b[2K"; //usuwa ca³¹ liniê
+
+		c.X = 41;
+		if (devmode == 1)
+			c.Y = 29;
+		if (devmode == 0)
+			c.Y = 16;
+		SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), c);
+		cout << "|";
+
+		c.X = 0;
+		if (devmode == 1)
+			c.Y = 29;
+		if (devmode == 0)
+			c.Y = 16;
+		SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), c);
+		cout << "Gdzie chcesz usun" << ¹ << æ << " " << œ << "ciane: ";
+	} while (!NowaPozycja());
+
+
+
+
+	// USTAWIANIE GRACZ 2
+	
+	// to samo ale inne wspó³rzêdne X
+
+	
 }
