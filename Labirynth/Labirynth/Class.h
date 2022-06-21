@@ -7,8 +7,8 @@
 using namespace std;
 
 
-int PlanszaWew[11][11]{}; // PlanszaWew bêdzie bazowo wype³niona "2"
 char PlanszaWyswietlana[11][11]{}; //PlanszaWyswietlana bêdzie bazowo wype³niona "0xFE"
+char PlanszaWyswietlana2[11][11]{};
 
 char Gracz1_TwojaPlansza[11][11]{};
 char Gracz2_TwojaPlansza[11][11]{};
@@ -19,12 +19,15 @@ char poz = 0xC4, pio = 0xB3;//kreska pozioma, pionowa
 char lg = 0xDA, pg = 0xBF, ld = 0xC0, pd = 0xD9; // rogi dla planszy lg - lewy górny, pg - prawy górny itd.
 
 string gdzie{}, gdzie_0 = "A1";
+string gdzie1 = "A1", gdzie2 = "A1";
 int x{}, y{};
 //do "gdzie" bêdziemy podawaæ wspó³rzêdn¹,
 //gdzie_0 zapisze poprzedni¹ pozycjê
 
 int dobicia{}; //do trybu 1-osobowego
 
+enum Gracze {Gracz1 = 1,Gracz2};
+Gracze KtóryGracz = Gracz1;
 
 COORD c; //do zmieniania pozycji kursora
 /*c.X = xj;
@@ -44,7 +47,7 @@ public:
 	void Kolory();
 	void Uzupe³nieniePlansz();
 	void WyswietlTabliceZew();
-	void WyswietlTabliceWew();
+	void WyswietlTabliceZew2();
 	void GenerowaniePrzejœcia();
 	bool NowaPozycja();
 	bool CzyDobije();
@@ -54,11 +57,27 @@ public:
 
 	void Gra_1os();
 	void Gra_2os();
+	bool CzyDobije2();
 };
 //------------------------------------------
 // intro
 void Clas::Menu()
 {
+	CONSOLE_SCREEN_BUFFER_INFOEX info1;
+	info1.cbSize = sizeof(CONSOLE_SCREEN_BUFFER_INFOEX);
+
+	HANDLE hConsole1 = GetStdHandle(STD_OUTPUT_HANDLE);
+	GetConsoleScreenBufferInfoEx(hConsole1, &info1);
+
+	info1.ColorTable[0] = RGB(16, 11, 7); //ten kolor jest t³em
+	info1.ColorTable[1] = RGB(105, 168, 226); //kolor gracza 1 - niebieski
+	info1.ColorTable[2] = RGB(207, 115, 54); //kolor gracza 2 - pomarañczowy
+	info1.ColorTable[3] = RGB(255, 255, 255); //kolor bia³y
+
+	SetConsoleScreenBufferInfoEx(hConsole1, &info1);
+
+	SetConsoleTextAttribute(hConsole1, 3); //(hConsole1, n) w funkcji oznacza ¿e bierzemy info1.ColorTable[n]
+
 	bool koniecMenu = 0;
 	do
 	{
@@ -188,6 +207,7 @@ void Clas::Kolory()
 	info1.ColorTable[0] = RGB(16, 11, 7); //ten kolor jest t³em
 	info1.ColorTable[1] = RGB(105, 168, 226); //kolor gracza 1 - niebieski
 	info1.ColorTable[2] = RGB(207, 115, 54); //kolor gracza 2 - pomarañczowy
+	info1.ColorTable[3] = RGB(0, 0, 0); //kolor bia³y
 
 	SetConsoleScreenBufferInfoEx(hConsole1, &info1);
 
@@ -201,15 +221,30 @@ void Clas::Uzupe³nieniePlansz()
 	{
 		for (int x = 0; x < WielkoscPlanszy; x++)
 		{
-			//PlanszaWew[i][j] = 2;
 			PlanszaWyswietlana[y][x] = 0xFE;
+			PlanszaWyswietlana2[y][x] = 0xFE;
 		}
 	}
 }
 
 void Clas::WyswietlTabliceZew()
 {	
-	cout << "  Tablica docelowa" << endl;
+	CONSOLE_SCREEN_BUFFER_INFOEX info1;
+	info1.cbSize = sizeof(CONSOLE_SCREEN_BUFFER_INFOEX);
+
+	HANDLE hConsole1 = GetStdHandle(STD_OUTPUT_HANDLE);
+	GetConsoleScreenBufferInfoEx(hConsole1, &info1);
+
+	info1.ColorTable[0] = RGB(16, 11, 7); //ten kolor jest t³em
+	info1.ColorTable[1] = RGB(105, 168, 226); //kolor gracza 1 - niebieski
+	info1.ColorTable[2] = RGB(207, 115, 54); //kolor gracza 2 - pomarañczowy
+	info1.ColorTable[3] = RGB(255, 255, 255); //kolor bia³y
+
+	SetConsoleScreenBufferInfoEx(hConsole1, &info1);
+
+	SetConsoleTextAttribute(hConsole1, 1); //(hConsole1, n) w funkcji oznacza ¿e bierzemy info1.ColorTable[n]
+
+	cout << "  Plansza odkryta" << endl;
 	cout << "   "; 
 
 	for (int i = 0; i < WielkoscPlanszy; i++)
@@ -249,19 +284,45 @@ void Clas::WyswietlTabliceZew()
 //-----------------------------------------------------
 }
 
-void Clas::WyswietlTabliceWew()
+void Clas::WyswietlTabliceZew2()
 {
-	cout << "  Tablica robocza" << endl;
-	cout << "   ";
+	CONSOLE_SCREEN_BUFFER_INFOEX info1;
+	info1.cbSize = sizeof(CONSOLE_SCREEN_BUFFER_INFOEX);
 
+	HANDLE hConsole1 = GetStdHandle(STD_OUTPUT_HANDLE);
+	GetConsoleScreenBufferInfoEx(hConsole1, &info1);
+
+	info1.ColorTable[0] = RGB(16, 11, 7); //ten kolor jest t³em
+	info1.ColorTable[1] = RGB(105, 168, 226); //kolor gracza 1 - niebieski
+	info1.ColorTable[2] = RGB(207, 115, 54); //kolor gracza 2 - pomarañczowy
+	info1.ColorTable[3] = RGB(255, 255, 255); //kolor bia³y
+
+	SetConsoleScreenBufferInfoEx(hConsole1, &info1);
+
+	SetConsoleTextAttribute(hConsole1, 2); //(hConsole1, n) w funkcji oznacza ¿e bierzemy info1.ColorTable[n]
+
+	int wierszKursora = 15;
+
+	c.X = 43;
+	c.Y = wierszKursora++;
+	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), c);
+	cout << "  Plansza odkryta" << endl;
+
+	c.X = 43;
+	c.Y = wierszKursora++;
+	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), c);
+	cout << "   ";
 	for (int i = 0; i < WielkoscPlanszy; i++)
 	{
 		cout.width(3);
-		cout << char(65 + i); //na górze wyœwietla A, B, C,...
+		cout << char(65 + i); //na górze tablicy wyœwietla A, B, C,...
 	}
 	cout << endl;
 
 	//-----------------------------------------------------
+	c.X = 43;
+	c.Y = wierszKursora++;
+	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), c);
 	cout << "   " << lg;
 	for (int i = 1; i <= WielkoscPlanszy; i++)           //górna ramka
 		cout << poz << poz << poz;
@@ -269,20 +330,28 @@ void Clas::WyswietlTabliceWew()
 	//-----------------------------------------------------
 	for (int i = 0; i <= WielkoscPlanszy - 1; i++)
 	{
+		c.X = 43;
+		c.Y = wierszKursora++;
+		SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), c);
+
 		cout.width(3);
 		cout << i + 1 << pio;
 
 		int j = 0;
 		cout.width(2);
-		cout << PlanszaWew[i][j];
+		cout << PlanszaWyswietlana[i][j];
+
 		for (int j = 1; j <= WielkoscPlanszy - 1; j++)   //œrodek
 		{
 			cout.width(3);
-			cout << PlanszaWew[i][j];
+			cout << PlanszaWyswietlana[i][j];
 		}
 		cout << ' ' << pio << endl;
 	}
 	//-----------------------------------------------------
+	c.X = 43;
+	c.Y = wierszKursora++;
+	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), c);
 	cout << "   " << ld;
 	for (int i = 1; i <= WielkoscPlanszy; i++)           //dolna ramka
 		cout << poz << poz << poz;
@@ -322,12 +391,12 @@ void Clas::GenerowaniePrzejœcia()
 					{
 						if (aktualnieWiersz > 1) //zeby nie wychodzil poza plansze
 						{//--------------------------------------------------------------
-							aktualnieWiersz--;
-							PlanszaWew[aktualnieWiersz][aktualnieKolumna] = 1;			  
+							aktualnieWiersz--;			  
 							PlanszaWyswietlana[aktualnieWiersz][aktualnieKolumna] = ' '; // przesuwamy sie o 2 pola, by nie tworzyc placow 
+							PlanszaWyswietlana2[aktualnieWiersz][aktualnieKolumna] = ' ';
 							aktualnieWiersz--;
-							PlanszaWew[aktualnieWiersz][aktualnieKolumna] = 1;
 							PlanszaWyswietlana[aktualnieWiersz][aktualnieKolumna] = ' ';
+							PlanszaWyswietlana2[aktualnieWiersz][aktualnieKolumna] = ' ';
 						}//--------------------------------------------------------------
 						else
 							dobrze = 0;
@@ -338,11 +407,11 @@ void Clas::GenerowaniePrzejœcia()
 						if (aktualnieKolumna < WielkoscPlanszy - 2)
 						{
 							aktualnieKolumna++;
-							PlanszaWew[aktualnieWiersz][aktualnieKolumna] = 1;
 							PlanszaWyswietlana[aktualnieWiersz][aktualnieKolumna] = ' ';
+							PlanszaWyswietlana2[aktualnieWiersz][aktualnieKolumna] = ' ';
 							aktualnieKolumna++;
-							PlanszaWew[aktualnieWiersz][aktualnieKolumna] = 1;
 							PlanszaWyswietlana[aktualnieWiersz][aktualnieKolumna] = ' ';
+							PlanszaWyswietlana2[aktualnieWiersz][aktualnieKolumna] = ' ';
 						}
 						else
 							dobrze = 0;
@@ -353,11 +422,11 @@ void Clas::GenerowaniePrzejœcia()
 						if (aktualnieWiersz < WielkoscPlanszy - 2)
 						{
 							aktualnieWiersz++;
-							PlanszaWew[aktualnieWiersz][aktualnieKolumna] = 1;
 							PlanszaWyswietlana[aktualnieWiersz][aktualnieKolumna] = ' ';
+							PlanszaWyswietlana2[aktualnieWiersz][aktualnieKolumna] = ' ';
 							aktualnieWiersz++;
-							PlanszaWew[aktualnieWiersz][aktualnieKolumna] = 1;
 							PlanszaWyswietlana[aktualnieWiersz][aktualnieKolumna] = ' ';
+							PlanszaWyswietlana2[aktualnieWiersz][aktualnieKolumna] = ' ';
 						}
 						else
 							dobrze = 0;
@@ -368,11 +437,11 @@ void Clas::GenerowaniePrzejœcia()
 						if (aktualnieKolumna > 1)
 						{
 							aktualnieKolumna--;
-							PlanszaWew[aktualnieWiersz][aktualnieKolumna] = 1;
 							PlanszaWyswietlana[aktualnieWiersz][aktualnieKolumna] = ' ';
+							PlanszaWyswietlana2[aktualnieWiersz][aktualnieKolumna] = ' ';
 							aktualnieKolumna--;
-							PlanszaWew[aktualnieWiersz][aktualnieKolumna] = 1;
 							PlanszaWyswietlana[aktualnieWiersz][aktualnieKolumna] = ' ';
+							PlanszaWyswietlana2[aktualnieWiersz][aktualnieKolumna] = ' ';
 						}
 						else
 							dobrze = 0;
@@ -382,14 +451,30 @@ void Clas::GenerowaniePrzejœcia()
 			}
 		}
 	}
-	PlanszaWew[0][0] = 8; // oznaczenie poczatku na planszy roboczej
-	PlanszaWew[WielkoscPlanszy - 1][WielkoscPlanszy - 1] = 9; // oznaczenie konca na planszy roboczej
 	PlanszaWyswietlana[0][0] = '*'; // bo na start zaczynamy z pozycji A1
-	PlanszaWyswietlana[WielkoscPlanszy - 1][WielkoscPlanszy - 1] = 'M'; //oznaczenie mety	
+	PlanszaWyswietlana[WielkoscPlanszy - 1][WielkoscPlanszy - 1] = 'M'; //oznaczenie mety
+
+	PlanszaWyswietlana2[0][0] = '*'; // bo na start zaczynamy z pozycji A1
+	PlanszaWyswietlana2[WielkoscPlanszy - 1][WielkoscPlanszy - 1] = 'M'; //oznaczenie mety
 }
 
 void Clas::Gracz1_Wyœwietl_Swoj¹Planszê()
 {
+	CONSOLE_SCREEN_BUFFER_INFOEX info1;
+	info1.cbSize = sizeof(CONSOLE_SCREEN_BUFFER_INFOEX);
+
+	HANDLE hConsole1 = GetStdHandle(STD_OUTPUT_HANDLE);
+	GetConsoleScreenBufferInfoEx(hConsole1, &info1);
+
+	info1.ColorTable[0] = RGB(16, 11, 7); //ten kolor jest t³em
+	info1.ColorTable[1] = RGB(105, 168, 226); //kolor gracza 1 - niebieski
+	info1.ColorTable[2] = RGB(207, 115, 54); //kolor gracza 2 - pomarañczowy
+	info1.ColorTable[3] = RGB(255, 255, 255); //kolor bia³y
+
+	SetConsoleScreenBufferInfoEx(hConsole1, &info1);
+
+	SetConsoleTextAttribute(hConsole1, 1); //(hConsole1, n) w funkcji oznacza ¿e bierzemy info1.ColorTable[n]
+
 	for (int y = 0; y < WielkoscPlanszy; y++)
 	{
 		for (int x = 0; x < WielkoscPlanszy; x++)
@@ -442,7 +527,22 @@ void Clas::Gracz1_Wyœwietl_Swoj¹Planszê()
 }
 
 void Clas::Gracz2_Wyœwietl_Swoj¹Planszê()
-{	//------------------------------------------------------------------------------------
+{	
+	CONSOLE_SCREEN_BUFFER_INFOEX info1;
+	info1.cbSize = sizeof(CONSOLE_SCREEN_BUFFER_INFOEX);
+
+	HANDLE hConsole1 = GetStdHandle(STD_OUTPUT_HANDLE);
+	GetConsoleScreenBufferInfoEx(hConsole1, &info1);
+
+	info1.ColorTable[0] = RGB(16, 11, 7); //ten kolor jest t³em
+	info1.ColorTable[1] = RGB(105, 168, 226); //kolor gracza 1 - niebieski
+	info1.ColorTable[2] = RGB(207, 115, 54); //kolor gracza 2 - pomarañczowy
+	info1.ColorTable[3] = RGB(255, 255, 255); //kolor bia³y
+
+	SetConsoleScreenBufferInfoEx(hConsole1, &info1);
+
+	SetConsoleTextAttribute(hConsole1, 2); //(hConsole1, n) w funkcji oznacza ¿e bierzemy info1.ColorTable[n]
+	//------------------------------------------------------------------------------------
 	for (int y = 0; y < WielkoscPlanszy; y++)
 	{																					  // przypisanie wartoœci
 		for (int x = 0; x < WielkoscPlanszy; x++)
@@ -542,7 +642,7 @@ bool Clas::NowaPozycja()
 			return false;
 
 //------------------------------------------------------
-	if (abs(gdzie[0] - gdzie_0[0] > 1))
+	if (abs(gdzie[0] - gdzie_0[0]) > 1)
 		return false;
 	else if(abs(gdzie[0] - gdzie_0[0]) == 1)
 		poruszenie_OX = true;
@@ -606,7 +706,6 @@ bool Clas::CzyDobije()
 		y = int(gdzie[1]) - 49;
 		if (PlanszaWyswietlana[y][x] != ' ')
 		{
-			cout << "(" << PlanszaWyswietlana[y][x] << ")  ";
 			return true;
 		}
 	}
@@ -621,9 +720,45 @@ bool Clas::CzyDobije()
 	return false;
 }
 
+bool Clas::CzyDobije2()
+{
+	x = int(gdzie[0]) - 65;
+	if (gdzie.size() == 2)
+	{
+		y = int(gdzie[1]) - 49;
+		if (PlanszaWyswietlana2[y][x] != ' ')
+		{
+			return true;
+		}
+	}
+	else // gdzie.size() == 3
+	{
+		y = int(gdzie[2]) - 39;
+		if (PlanszaWyswietlana2[y][x] != ' ')
+		{
+			return true;
+		}
+	}
+	return false;
+}
+
 void Clas::Gra_1os()
 {
-	Kolory();
+	CONSOLE_SCREEN_BUFFER_INFOEX info1;
+	info1.cbSize = sizeof(CONSOLE_SCREEN_BUFFER_INFOEX);
+
+	HANDLE hConsole1 = GetStdHandle(STD_OUTPUT_HANDLE);
+	GetConsoleScreenBufferInfoEx(hConsole1, &info1);
+
+	info1.ColorTable[0] = RGB(16, 11, 7); //ten kolor jest t³em
+	info1.ColorTable[1] = RGB(105, 168, 226); //kolor gracza 1 - niebieski
+	info1.ColorTable[2] = RGB(207, 115, 54); //kolor gracza 2 - pomarañczowy
+	info1.ColorTable[3] = RGB(255, 255, 255); //kolor bia³y
+
+	SetConsoleScreenBufferInfoEx(hConsole1, &info1);
+
+	SetConsoleTextAttribute(hConsole1, 3); //(hConsole1, n) w funkcji oznacza ¿e bierzemy info1.ColorTable[n]
+
 	Uzupe³nieniePlansz();
 	GenerowaniePrzejœcia();
 
@@ -632,22 +767,27 @@ void Clas::Gra_1os()
 	cout << "Program wygenerowa" << ³ << " plansz" << ê << ". Twoim zadaniem jest znalezienie przej" << œ << "cia z jednego rogu mapy do drugiego. " << endl << endl;
 	system("pause");
 	system("CLS");
+	SetConsoleTextAttribute(hConsole1, 1);
 
 	Gracz1_Wyœwietl_Swoj¹Planszê();
-	cout << endl;
+	cout << "   dobicia: ";
 
-	if (devmode == 1)
+	if (devmode)
+	{
+		cout << endl;
 		WyswietlTabliceZew();
-	
+	}
+	gdzie_0 = "A1";
 	do
 	{
 		do
 		{
 			c.X = 0;
-			if (devmode == 1)
-				c.Y = 31;
-			if (devmode == 0)
+			if (!devmode)
 				c.Y = 18;
+			else if (devmode)
+				c.Y = 31;
+			
 			SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), c);
 			cout << "\x1b[2K"; //usuwa ca³¹ liniê
 			cout << "gdzie chcesz si"<< ê <<" poruszy" << æ << ": ";
@@ -668,58 +808,87 @@ void Clas::Gra_1os()
 			cout << Gracz1_TwojaPlansza[y][x];
 
 			PlanszaWyswietlana[y][x] = '*';
-			c.X = 5 + 3 * x;
-			c.Y = 19 + y;
-			SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), c);
-			cout << PlanszaWyswietlana[y][x];
-
+			if (devmode)
+			{
+				c.X = 5 + 3 * x;
+				c.Y = 19 + y;
+				SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), c);
+				cout << PlanszaWyswietlana[y][x];
+			}
 			gdzie_0 = gdzie;
+		}
+		else if (PlanszaWyswietlana[y][x] == '*')
+		{
+			cout << "na tej pozycji ju" << ¿ << " by" << ³ << "e" << œ;
+			Sleep(1000);
+			cout << '\r' << "\x1b[2K";
 		}
 		else if (x == WielkoscPlanszy-1 && y == WielkoscPlanszy-1)
 		{
-			Gracz1_TwojaPlansza[x][y] = '*';
+			Gracz1_TwojaPlansza[y][x] = '*';
 			c.X = 5 + 3 * x;
 			c.Y = 3 + y;
 			SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), c);
-			cout << Gracz1_TwojaPlansza[x][y];
+			cout << Gracz1_TwojaPlansza[y][x];
 
-			PlanszaWyswietlana[x][y] = '*';
-			c.X = 5 + 3 * x;
-			c.Y = 19 + y;
-			SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), c);
-			cout << PlanszaWyswietlana[x][y];
-
-			c.X = 0;
-			c.Y = 33;
+			if (devmode)
+			{
+				PlanszaWyswietlana[y][x] = '*';
+				c.X = 5 + 3 * x;
+				c.Y = 19 + y;
+				SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), c);
+				cout << PlanszaWyswietlana[y][x];
+				c.X = 0;
+				c.Y = 33;
+			}
+			else 
+			{
+				c.X = 0;
+				c.Y = 20;
+			}			
 			SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), c);
 			cout << "KONIEC GRY!!!";
 		}
 		else
 		{
-			cout << "dobije do " << œ << "ciany";			
+			cout << "dobije do " << œ << "ciany" << " (" << PlanszaWyswietlana[y][x] << ")  ";
 			Sleep(1000);
 			cout << '\r' << "\x1b[2K";
 
 			c.X = 5 + 3 * x;
 			c.Y = 3 + y;
 			SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), c);
-			Gracz1_TwojaPlansza[y][x] = 0xFE;
+			Gracz1_TwojaPlansza[y][x] = PlanszaWyswietlana[y][x];
 			cout << Gracz1_TwojaPlansza[y][x];
 
 			dobicia++;
+			c.X = 12;
+			c.Y = 15;
+			SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), c);
+			cout << dobicia;
 		}
-	} while (x != WielkoscPlanszy-1 || y != WielkoscPlanszy-1);
-	
-
-	c.X = 0;
-	c.Y = 34;
-	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), c);
+	} while (x != WielkoscPlanszy-1 || y != WielkoscPlanszy-1);	
 }
 
 void Clas::Gra_2os()
 {
-	Kolory();
+	CONSOLE_SCREEN_BUFFER_INFOEX info1;
+	info1.cbSize = sizeof(CONSOLE_SCREEN_BUFFER_INFOEX);
+
+	HANDLE hConsole1 = GetStdHandle(STD_OUTPUT_HANDLE);
+	GetConsoleScreenBufferInfoEx(hConsole1, &info1);
+
+	info1.ColorTable[0] = RGB(16, 11, 7); //ten kolor jest t³em
+	info1.ColorTable[1] = RGB(105, 168, 226); //kolor gracza 1 - niebieski
+	info1.ColorTable[2] = RGB(207, 115, 54); //kolor gracza 2 - pomarañczowy
+	info1.ColorTable[3] = RGB(255, 255, 255); //kolor bia³y
+
+	SetConsoleScreenBufferInfoEx(hConsole1, &info1);
+
+	SetConsoleTextAttribute(hConsole1, 3); //(hConsole1, n) w funkcji oznacza ¿e bierzemy info1.ColorTable[n]
+
 	Uzupe³nieniePlansz();
+	GenerowaniePrzejœcia();
 
 	system("CLS");
 	cout << "INSTRUKCJA: TRYB DWUOSOBOWY" << endl << endl;
@@ -727,8 +896,6 @@ void Clas::Gra_2os()
 	cout << "Gre zaczyna GRACZ1 i gra on tak d" << ³ << "ugo, a" << ¿ << " trafi w " << œ << "ciane. Wtedy nast" << ê << "puje zmiana graczy. I tak w k"<<ó<<³<<"ko, a" << ¿ << " kt" << ó << "ry" << œ << " dotrze do mety." << endl << endl;
 	system("pause");
 	system("CLS");
-
-
 	Gracz1_Wyœwietl_Swoj¹Planszê();
 	//----------------------------------------------------------------
 	int wysokosc{};													  // Linia oddzielaj¹ca plansze
@@ -736,6 +903,7 @@ void Clas::Gra_2os()
 		wysokosc = 29;
 	if (devmode == 0)
 		wysokosc = 16;
+	SetConsoleTextAttribute(hConsole1, 3);
 	for (int i{}; i <= wysokosc+2; i++)
 	{
 		c.X = 41;
@@ -746,34 +914,243 @@ void Clas::Gra_2os()
 	//----------------------------------------------------------------
 	Gracz2_Wyœwietl_Swoj¹Planszê();
 
-
-	//USTAWIANIE GRACZ 1
+	if (devmode)
+	{
+		WyswietlTabliceZew();
+		WyswietlTabliceZew2();
+	}
+	gdzie1 = "A1";
+	gdzie2 = "A1";
+	gdzie_0 = "A1";
+	KtóryGracz = Gracz1;
 	do
 	{
-		c.X = 0;
-		if (devmode == 1)
-			c.Y = 29;
-		if (devmode == 0)
-			c.Y = 16;
-		SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), c);
-		cout << "\x1b[2K"; //usuwa ca³¹ liniê
+		if (KtóryGracz == Gracz1)
+		{
+			SetConsoleTextAttribute(hConsole1, 1);
+			do
+			{
+				c.X = 0;
+				if (!devmode)
+					c.Y = 18;
+				else if (devmode)
+					c.Y = 31;
 
-		c.X = 41;
-		if (devmode == 1)
-			c.Y = 29;
-		if (devmode == 0)
-			c.Y = 16;
-		SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), c);
-		cout << "|";
+				SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), c);
+				cout << "\x1b[2K"; //usuwa ca³¹ liniê
+				cout << "gdzie chcesz si" << ê << " poruszy" << æ << ": ";
 
-		c.X = 0;
-		if (devmode == 1)
-			c.Y = 29;
-		if (devmode == 0)
-			c.Y = 16;
-		SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), c);
-		cout << "Gdzie chcesz usun" << ¹ << æ << " " << œ << "ciane: ";
-	} while (!NowaPozycja());
+			} while (!NowaPozycja());
+
+
+			if (!CzyDobije())
+			{
+				cout << "nie dobije";
+				Sleep(400);
+				cout << '\r' << "\x1b[2K";
+
+				Gracz1_TwojaPlansza[y][x] = '*';
+				c.X = 5 + 3 * x;
+				c.Y = 3 + y;
+				SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), c);
+				cout << Gracz1_TwojaPlansza[y][x];
+
+				PlanszaWyswietlana[y][x] = '*';
+				if (devmode)
+				{
+					c.X = 5 + 3 * x;
+					c.Y = 18 + y;
+					SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), c);
+					cout << PlanszaWyswietlana[y][x];
+				}
+				gdzie_0 = gdzie;
+			}
+			else if (PlanszaWyswietlana[y][x] == '*')
+			{
+				cout << "na tej pozycji ju" << ¿ << " by" << ³ << "e" << œ;
+				Sleep(1000);
+				cout << '\r' << "\x1b[2K";
+			}
+			else if (x == WielkoscPlanszy - 1 && y == WielkoscPlanszy - 1)
+			{
+				Gracz1_TwojaPlansza[y][x] = '*';
+				c.X = 5 + 3 * x;
+				c.Y = 3 + y;
+				SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), c);
+				cout << Gracz1_TwojaPlansza[y][x];
+
+				if (devmode)
+				{
+					PlanszaWyswietlana[y][x] = '*';
+					c.X = 5 + 3 * x;
+					c.Y = 19 + y;
+					SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), c);
+					cout << PlanszaWyswietlana[y][x];
+					c.X = 0;
+					c.Y = 33;
+				}
+				else
+				{
+					c.X = 0;
+					c.Y = 20;
+				}
+				SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), c);
+				cout << "KONIEC GRY!!!";
+			}
+			else
+			{
+				cout << "dobije do " << œ << "ciany" << " (" << PlanszaWyswietlana[y][x] << ")  ";
+				Sleep(1000);
+				cout << '\r' << "\x1b[2K";
+
+				c.X = 5 + 3 * x;
+				c.Y = 3 + y;
+				SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), c);
+				Gracz1_TwojaPlansza[y][x] = PlanszaWyswietlana[y][x];
+				cout << Gracz1_TwojaPlansza[y][x];
+				KtóryGracz = Gracz2;
+				gdzie1 = gdzie_0;
+				gdzie_0 = gdzie2;
+			}
+		}
+		else if (KtóryGracz == Gracz2)
+		{
+			SetConsoleTextAttribute(hConsole1, 2);
+			do
+			{
+				c.X = 42;
+				if (!devmode)
+					c.Y = 18;
+				else if (devmode)
+					c.Y = 31;
+
+				SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), c);
+				cout << "\x1b[2K"; //usuwa ca³¹ liniê
+				cout << "gdzie chcesz si" << ê << " poruszy" << æ << ": ";
+
+			} while (!NowaPozycja());
+
+			if (!CzyDobije2())
+			{
+				c.X = 42;
+				if (!devmode)
+					c.Y = 20;
+				else if (devmode)
+					c.Y = 33;
+				SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), c);
+				cout << "nie dobije";
+				Sleep(400);
+				SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), c);
+				cout << "\x1b[2K";
+
+				Gracz2_TwojaPlansza[y][x] = '*';
+				c.X = 48 + 3 * x;
+				c.Y = 3 + y;
+				SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), c);
+				cout << Gracz2_TwojaPlansza[y][x];
+
+				PlanszaWyswietlana2[y][x] = '*';
+				if (devmode)
+				{
+					c.X = 48 + 3 * x;
+					c.Y = 18 + y;
+					SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), c);
+					cout << PlanszaWyswietlana2[y][x];
+				}
+				gdzie_0 = gdzie;
+			}
+			else if (PlanszaWyswietlana2[y][x] == '*')
+			{
+				c.X = 42;
+				if (!devmode)
+					c.Y = 20;
+				else if (devmode)
+					c.Y = 33;
+				SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), c);
+				cout << "na tej pozycji ju" << ¿ << " by" << ³ << "e" << œ;
+				Sleep(1000);
+				SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), c);
+				cout << "\x1b[2K";
+			}
+			else if (x == WielkoscPlanszy - 1 && y == WielkoscPlanszy - 1)
+			{
+				Gracz2_TwojaPlansza[y][x] = '*';
+				c.X = 48 + 3 * x;
+				c.Y = 3 + y;
+				SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), c);
+				cout << Gracz2_TwojaPlansza[y][x];
+
+				if (devmode)
+				{
+					PlanszaWyswietlana2[y][x] = '*';
+					c.X = 48 + 3 * x;
+					c.Y = 19 + y;
+					SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), c);
+					cout << PlanszaWyswietlana2[y][x];
+					c.X = 42;
+					c.Y = 33;
+				}
+				else
+				{
+					c.X = 42;
+					c.Y = 20;
+				}
+				SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), c);
+				cout << "KONIEC GRY!!!";
+			}
+			else
+			{
+				c.X = 42;
+				if (!devmode)
+					c.Y = 20;
+				else if (devmode)
+					c.Y = 33;
+				SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), c);
+				cout << "dobije do " << œ << "ciany" << " (" << PlanszaWyswietlana2[y][x] << ")  ";
+				Sleep(1000);
+				SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), c);
+				cout << "\x1b[2K";
+
+				c.X = 48 + 3 * x;
+				c.Y = 3 + y;
+				SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), c);
+				Gracz2_TwojaPlansza[y][x] = PlanszaWyswietlana2[y][x];
+				cout << Gracz2_TwojaPlansza[y][x];
+				KtóryGracz = Gracz1;
+				gdzie2 = gdzie_0;
+				gdzie_0 = gdzie1;
+			}
+		}
+
+	} while (x != WielkoscPlanszy - 1 || y != WielkoscPlanszy - 1);
+
+	//USTAWIANIE GRACZ 1
+	//do
+	//{
+	//	c.X = 0;
+	//	if (devmode == 1)
+	//		c.Y = 29;
+	//	if (devmode == 0)
+	//		c.Y = 16;
+	//	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), c);
+	//	cout << "\x1b[2K"; //usuwa ca³¹ liniê
+
+	//	c.X = 41;
+	//	if (devmode == 1)
+	//		c.Y = 29;
+	//	if (devmode == 0)
+	//		c.Y = 16;
+	//	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), c);
+	//	cout << "|";
+
+	//	c.X = 0;
+	//	if (devmode == 1)
+	//		c.Y = 29;
+	//	if (devmode == 0)
+	//		c.Y = 16;
+	//	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), c);
+	//	cout << "Gdzie chcesz usun" << ¹ << æ << " " << œ << "ciane: ";
+	//} while (!NowaPozycja());
 
 
 
