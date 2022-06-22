@@ -834,7 +834,7 @@ bool Clas::CzyDobije()
 	if (gdzie.size() == 2)
 	{
 		y = int(gdzie[1]) - 49;
-		if (Gracz2_PlanszaWew[y][x] != ' ')
+		if (PlanszaWyswietlana[y][x] != ' ')
 		{
 			return true;
 		}
@@ -842,7 +842,7 @@ bool Clas::CzyDobije()
 	else // gdzie.size() == 3
 	{
 		y = int(gdzie[2]) - 39;
-		if (Gracz2_PlanszaWew[y][x] != ' ')
+		if (PlanszaWyswietlana[y][x] != ' ')
 		{
 			return true;
 		}
@@ -856,7 +856,7 @@ bool Clas::CzyDobije2()
 	if (gdzie.size() == 2)
 	{
 		y = int(gdzie[1]) - 49;
-		if (Gracz1_PlanszaWew[y][x] != ' ')
+		if (Gracz2_PlanszaWew[y][x] != ' ')
 		{
 			return true;
 		}
@@ -864,7 +864,7 @@ bool Clas::CzyDobije2()
 	else // gdzie.size() == 3
 	{
 		y = int(gdzie[2]) - 39;
-		if (Gracz1_PlanszaWew[y][x] != ' ')
+		if (Gracz2_PlanszaWew[y][x] != ' ')
 		{
 			return true;
 		}
@@ -1111,7 +1111,7 @@ void Clas::Gra_2os()
 		c.Y = 35;
 		SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), c);
 		cout << "Gdy uznasz, " << ¿ << "e plansza jest gotowa wpisz: okon";
-
+		SetConsoleTextAttribute(hConsole1, 1);
 		do
 		{
 			c.X = 0;
