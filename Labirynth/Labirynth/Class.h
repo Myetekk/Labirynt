@@ -41,7 +41,7 @@ SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), c);*/
 
 char ³ = 0x88, Ÿ = 0xAB, ó = 0xA2, œ = 0x98, æ = 0x86, ¿ = 0xBE, ê = 0xA9, ¹ = 0xA5, ñ = 0xE4;; // polskie znaki
 
-bool devmode = 1;
+bool devmode = 0;
 
 class Clas
 {
@@ -56,6 +56,7 @@ public:
 	void GenerowaniePrzejœcia();
 	bool NowaPozycja();
 	bool CzyDobije();
+	bool CzyDobije1();
 	bool CzyDobije2();
 	bool NowaPozycjaTryb2();
 
@@ -850,7 +851,7 @@ bool Clas::CzyDobije()
 	return false;
 }
 
-bool Clas::CzyDobije2()
+bool Clas::CzyDobije1()
 {
 	x = int(gdzie[0]) - 65;
 	if (gdzie.size() == 2)
@@ -865,6 +866,28 @@ bool Clas::CzyDobije2()
 	{
 		y = int(gdzie[2]) - 39;
 		if (Gracz2_PlanszaWew[y][x] != ' ')
+		{
+			return true;
+		}
+	}
+	return false;
+}
+
+bool Clas::CzyDobije2()
+{
+	x = int(gdzie[0]) - 65;
+	if (gdzie.size() == 2)
+	{
+		y = int(gdzie[1]) - 49;
+		if (Gracz1_PlanszaWew[y][x] != ' ')
+		{
+			return true;
+		}
+	}
+	else // gdzie.size() == 3
+	{
+		y = int(gdzie[2]) - 39;
+		if (Gracz1_PlanszaWew[y][x] != ' ')
 		{
 			return true;
 		}
@@ -1104,13 +1127,16 @@ void Clas::Gra_2os()
 		//----------------------------------------------------------------
 		SetConsoleTextAttribute(hConsole1, 2);
 		Gracz2_Wyœwietl_Swoj¹Planszê();
-		if (devmode == 1) Gracz2_Wyœwietl_Swoj¹PlanszêWew(1);
+		if (devmode == 1)
+		{
+			Gracz2_Wyœwietl_Swoj¹PlanszêWew(1);
 
-		SetConsoleTextAttribute(hConsole1, 1);
-		c.X = 0;
-		c.Y = 35;
-		SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), c);
-		cout << "Gdy uznasz, " << ¿ << "e plansza jest gotowa wpisz: okon";
+			SetConsoleTextAttribute(hConsole1, 1);
+			c.X = 0;
+			c.Y = 35;
+			SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), c);
+			cout << "Gdy uznasz, " << ¿ << "e plansza jest gotowa wpisz: okon";
+		}
 		SetConsoleTextAttribute(hConsole1, 1);
 		do
 		{
@@ -1167,14 +1193,15 @@ void Clas::Gra_2os()
 		}
 		//----------------------------------------------------------------
 		SetConsoleTextAttribute(hConsole1, 2);
-		Gracz2_Wyœwietl_Swoj¹PlanszêWew(1);
-		if (devmode == 1) Gracz2_Wyœwietl_Swoj¹PlanszêWew(2);
-
-		c.X = 43;
-		c.Y = 35;
-		SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), c);
-		cout << "Gdy uznasz, " << ¿ << "e plansza jest gotowa wpisz: okon";
-
+		Gracz2_Wyœwietl_Swoj¹PlanszêWew(2);
+		if (devmode == 1)
+		{
+			Gracz2_Wyœwietl_Swoj¹PlanszêWew(1);
+			c.X = 43;
+			c.Y = 35;
+			SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), c);
+			cout << "Gdy uznasz, " << ¿ << "e plansza jest gotowa wpisz: okon";
+		}
 		do
 		{
 			c.X = 43;
@@ -1256,7 +1283,7 @@ void Clas::Gra_2os()
 			} while (!NowaPozycja());
 
 
-			if (!CzyDobije())
+			if (!CzyDobije1())
 			{
 				cout << "nie dobije";
 				Sleep(400);
