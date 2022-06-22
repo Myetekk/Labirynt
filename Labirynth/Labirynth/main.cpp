@@ -1,4 +1,4 @@
-#include "Class.h"
+#include "Klasah.h"
 
 int main()
 {
