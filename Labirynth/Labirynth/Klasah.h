@@ -690,7 +690,7 @@ void Clas::Gracz2_Wyœwietl_Swoj¹PlanszêWew(int opcja)
 	c.X = 43;
 	c.Y = wierszKursora++;
 	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), c);
-	cout << "  GRACZ 2:" << endl;
+	cout << "  GRACZ 2:";
 	c.X = 43;
 	c.Y = wierszKursora++;
 	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), c);
@@ -702,7 +702,6 @@ void Clas::Gracz2_Wyœwietl_Swoj¹PlanszêWew(int opcja)
 		cout.width(3);
 		cout << char(65 + i); //na gorze tablicy wyswietla A, B, C,...
 	}
-	cout << endl;
 
 	//-----------------------------------------------------
 	c.X = 43;
@@ -711,7 +710,7 @@ void Clas::Gracz2_Wyœwietl_Swoj¹PlanszêWew(int opcja)
 	cout << "   " << lg;
 	for (int i = 1; i <= WielkoscPlanszy; i++)           //górna ramka
 		cout << poz << poz << poz;
-	cout << pg << endl;
+	cout << pg;
 	//-----------------------------------------------------
 	for (int y = 0; y <= WielkoscPlanszy - 1; y++)
 	{
@@ -730,7 +729,7 @@ void Clas::Gracz2_Wyœwietl_Swoj¹PlanszêWew(int opcja)
 			cout.width(3);
 			cout << Gracz2_PlanszaWew[y][x];
 		}
-		cout << ' ' << pio << endl;
+		cout << ' ' << pio;
 	}
 	//-----------------------------------------------------
 	c.X = 43;
@@ -739,7 +738,7 @@ void Clas::Gracz2_Wyœwietl_Swoj¹PlanszêWew(int opcja)
 	cout << "   " << ld;
 	for (int i = 1; i <= WielkoscPlanszy; i++)           //dolna ramka
 		cout << poz << poz << poz;
-	cout << pd << endl;
+	cout << pd;
 }
 
 bool Clas::NowaPozycja()
@@ -1112,12 +1111,13 @@ void Clas::Gra_2os()
 		if (devmode == 1) Gracz1_Wyœwietl_Swoj¹PlanszêWew();
 
 		//----------------------------------------------------------------
-		int wysokosc{};													  // Linia oddzielaj¹ca plansze
+		SetConsoleTextAttribute(hConsole1, 3);		// Linia oddzielaj¹ca plansze
+		int wysokosc{};													  
 		if (devmode == 1)
 			wysokosc = 32;
 		if (devmode == 0)
 			wysokosc = 16;
-		for (int i{}; i <= wysokosc - 1; i++)
+		for (int i{}; i <= wysokosc - 2; i++)
 		{
 			c.X = 41;
 			c.Y = i;
@@ -1179,12 +1179,13 @@ void Clas::Gra_2os()
 		if (devmode == 1) Gracz1_Wyœwietl_Swoj¹PlanszêWew();
 
 		//----------------------------------------------------------------
-		int wysokosc{};													  // Linia oddzielaj¹ca plansze
+		SetConsoleTextAttribute(hConsole1, 3);		// Linia oddzielaj¹ca plansze
+		int wysokosc{};													  
 		if (devmode == 1)
 			wysokosc = 32;
 		if (devmode == 0)
 			wysokosc = 16;
-		for (int i{}; i <= wysokosc - 1; i++)
+		for (int i{}; i <= wysokosc - 2; i++)
 		{
 			c.X = 41;
 			c.Y = i;
@@ -1239,14 +1240,17 @@ void Clas::Gra_2os()
 	Gracz1_Wyœwietl_Swoj¹Planszê();
 	cout << endl;
 	if (devmode == 1) Gracz1_Wyœwietl_Swoj¹PlanszêWew();
-
+	SetConsoleTextAttribute(hConsole1, 2);
+	Gracz2_Wyœwietl_Swoj¹Planszê();
+	if (devmode == 1) Gracz2_Wyœwietl_Swoj¹PlanszêWew(1);
 	//----------------------------------------------------------------
-	int wysokosc{};													  // Linia oddzielaj¹ca plansze
+	SetConsoleTextAttribute(hConsole1, 3);		// Linia oddzielaj¹ca plansze
+	int wysokosc{};													 
 	if (devmode == 1)
 		wysokosc = 32;
 	if (devmode == 0)
 		wysokosc = 16;
-	for (int i{}; i <= wysokosc - 1; i++)
+	for (int i{}; i <= wysokosc - 2; i++)
 	{
 		c.X = 41;
 		c.Y = i;
@@ -1254,9 +1258,7 @@ void Clas::Gra_2os()
 		cout << "|";
 	}
 	//----------------------------------------------------------------
-	SetConsoleTextAttribute(hConsole1, 2);
-	Gracz2_Wyœwietl_Swoj¹Planszê();
-	if (devmode == 1) Gracz2_Wyœwietl_Swoj¹PlanszêWew(1);
+	
 
 	SetConsoleTextAttribute(hConsole1, 1);
 	gdzie1 = "A1";
@@ -1296,13 +1298,13 @@ void Clas::Gra_2os()
 				cout << Gracz1_TwojaPlansza[y][x];
 
 				PlanszaWyswietlana[y][x] = '*';
-				/*if (devmode)
+				if (devmode)
 				{
 					c.X = 5 + 3 * x;
-					c.Y = 18 + y;
+					c.Y = 19 + y;
 					SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), c);
 					cout << PlanszaWyswietlana[y][x];
-				}*/
+				}
 				gdzie_0 = gdzie;
 			}
 			else if (PlanszaWyswietlana[y][x] == '*')
@@ -1390,13 +1392,13 @@ void Clas::Gra_2os()
 				cout << Gracz2_TwojaPlansza[y][x];
 
 				PlanszaWyswietlana2[y][x] = '*';
-				/*if (devmode)
+				if (devmode)
 				{
 					c.X = 48 + 3 * x;
-					c.Y = 18 + y;
+					c.Y = 19 + y;
 					SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), c);
 					cout << PlanszaWyswietlana2[y][x];
-				}*/
+				}
 				gdzie_0 = gdzie;
 			}
 			else if (PlanszaWyswietlana2[y][x] == '*')
